@@ -3,43 +3,43 @@
         {
             "img" : "./assets/img/cat1.jpg",
             "id" : "1",
-            "category" : "Restaurants",
-            "icon" : "la-cutlery",
+            "category" : "中文",
+            "icon" : "la-book",
             "list" : "10"
         },
         {
             "img" : "./assets/img/cat2.jpg",
             "id" : "2",
-            "category" : "Places & Destination",
-            "icon" : "la-map-marker",
+            "category" : "英文",
+            "icon" : "la-font",
             "list" : "20"
         },
         {
             "img" : "./assets/img/cat3.jpg",
             "id" : "3",
-            "category" : "Shopping & Store",
-            "icon" : "la-shopping-cart",
+            "category" : "數學",
+            "icon" : "la-plus",
             "list" : "30"
         },
         {
             "img" : "./assets/img/cat4.jpg",
             "id" : "4",
-            "category" : "Art & History",
+            "category" : "通識",
             "icon" : "la-bank",
             "list" : "20"
         },
         {
             "img" : "./assets/img/cat5.jpg",
             "id" : "5",
-            "category" : "Hotel & Travel",
-            "icon" : "la-bed",
+            "category" : "物理",
+            "icon" : "la-rocket",
             "list" : "100"
         },
         {
             "img" : "./assets/img/cat6.jpg",
             "id" : "6",
-            "category" : "Food & Drink",
-            "icon" : "la-glass",
+            "category" : "化學",
+            "icon" : "la-fire",
             "list" : "50"
         }
     ],

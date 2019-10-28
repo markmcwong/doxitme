@@ -42,8 +42,8 @@ class Index extends Component {
                 <section className="categories-cards section-padding-two">
                     <div className="container">
                         <SectionTitle 
-                            title="What Kind of Activity do you Want to try?" 
-                            content="Discover best things to do restaurants, shopping, hotels, cafes and places around the world by categories."
+                            title="搜尋你能輔導的學生"
+                            content="Discover best things to do restaurants, shopping, hotels, cafes and places around the world by subjects."
                         />
                         <div className="row">
                             <CardCategoryGrid4 />
