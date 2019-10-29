@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20020100-c595-46d2-ace0-d67b4a1a66c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/page/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/softdata.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/softdata.json" afterDir="false" />
     </list>
@@ -18,12 +19,14 @@
   </component>
   <component name="ProjectId" id="1SmzvjsOiXBPXGxplBkQjkeRSIq" />
   <component name="PropertiesComponent">
+    <property name="PluginDummyText.Genre" value="latin" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -49,7 +52,12 @@
       <updated>1572183791877</updated>
       <workItem from="1572183793130" duration="1056000" />
       <workItem from="1572244723288" duration="3102000" />
-      <workItem from="1572289691519" duration="804000" />
+      <workItem from="1572289691519" duration="1986000" />
+      <workItem from="1572314732044" duration="17000" />
+      <workItem from="1572314758382" duration="24000" />
+      <workItem from="1572314790709" duration="41000" />
+      <workItem from="1572314840121" duration="21000" />
+      <workItem from="1572314870151" duration="978000" />
     </task>
     <servers />
   </component>
@@ -61,7 +69,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

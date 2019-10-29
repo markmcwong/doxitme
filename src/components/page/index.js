@@ -43,7 +43,7 @@ class Index extends Component {
                     <div className="container">
                         <SectionTitle 
                             title="搜尋你能輔導的學生"
-                            content="Discover best things to do restaurants, shopping, hotels, cafes and places around the world by subjects."
+                            content="Dominas trabem, tanquam rusticus musa. Cum cannabis messis, omnes silvaes talem pius, primus mineralises.  "
                         />
                         <div className="row">
                             <CardCategoryGrid4 />

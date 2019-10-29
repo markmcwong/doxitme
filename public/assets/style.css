@@ -2622,6 +2622,7 @@ p {
   -webkit-border-radius: 3px;
           border-radius: 3px;
   overflow: hidden;
+  max-height: 280px;
 }
 
 .category--img figure {
@@ -2630,6 +2631,10 @@ p {
           border-radius: 3px;
   overflow: hidden;
   margin-bottom: 0;
+  max-height: 280px;
+}
+.category--img figure img {
+  height: 280px;
 }
 
 .category--img figure figcaption {
