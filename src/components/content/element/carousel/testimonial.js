@@ -12,20 +12,20 @@ const options = {
 
 class Testimonial extends Component {
     render() {
-        const { tistimonial } = this.props;
+        const { testimonial } = this.props;
         return (
             <Fragment>
                 <OwlCarousel options={options} className="testimonial-carousel owl-carousel" >
                     {
-                        Object.values(tistimonial).slice(0, 2).map((value, key) => {
-                            const { img } = value;
+                        Object.values(testimonial).slice(0, 4).map((value, key) => {
+                            const { img, title, location } = value;
                             return (                       
                                 <div className="carousel-single" key={key}>
                                     <div className="author-thumb">
                                         <img src={img} alt="" className="rounded-circle" />
                                     </div>
                                     <div className="author-info">
-                                        <h4>Francis Burton</h4>
+                                        <h4>{title}</h4>
                                         <span>Toronto, Canada</span>
                                     </div>
                                     <p className="author-comment">Excepteur sint occaecat cupidatat non proident sunt in culpa officia deserunt mollit anim laborum sint occaecat cupidatat non proident. Occaecat cupidatat non proident
@@ -41,7 +41,7 @@ class Testimonial extends Component {
 }
 const mapStateToProps =  (state) => {
     return {
-        tistimonial : state.testimonial
+        testimonial : state.testimonial
     }
 }
 export default connect(mapStateToProps)(Testimonial)

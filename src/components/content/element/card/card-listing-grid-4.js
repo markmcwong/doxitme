@@ -15,21 +15,22 @@ class ListingCardGrid4 extends Component {
                             <div className="atbd_single_listing ">
                                 <article className="atbd_single_listing_wrapper">
                                     <figure className="atbd_listing_thumbnail_area">
-                                        <div className="atbd_listing_image">
+                                        <div className="atbd_listing_image text-center">
                                             <a href=" ">
                                                 <img src={img} alt="listingimage" />
                                             </a>
                                         </div>{/*<!-- ends: .atbd_listing_image -->*/}
                                         <div className="atbd_author atbd_author--thumb">
                                             <a href=" ">
-                                                <img src="./assets/img/author-thumb2.jpg" alt="AuthorImage" />
+                                                {/*<img src="./assets/img/author-thumb2.jpg" alt="AuthorImage" />*/}
+                                                <span className="la la-plus-circle atbd_author--apply"></span>
                                                 <span className="custom-tooltip">Jeffery A, Owner</span>
                                             </a>
                                         </div>
                                         <div className="atbd_thumbnail_overlay_content">
-                                            <ul className="atbd_upper_badge">
+                                            {/*<ul className="atbd_upper_badge">
                                                 <li><span className={"text-capitalize atbd_badge atbd_badge_"+badge}>{badge}</span></li>
-                                            </ul>{/*<!-- ends .atbd_upper_badge -->*/}
+                                            </ul>*/}{/*<!-- ends .atbd_upper_badge -->*/}
                                         </div>{/*<!-- ends: .atbd_thumbnail_overlay_content -->*/}
                                     </figure>{/*<!-- ends: .atbd_listing_thumbnail_area -->*/}
                                     <div className="atbd_listing_info">
@@ -51,11 +52,11 @@ class ListingCardGrid4 extends Component {
                                                             <li>
                                                                 <p><span className="la la-map-marker"></span>{location}</p>
                                                             </li>
-                                                            <li>
+                                                            {/*<li>
                                                                 <p><span className="la la-phone"></span>{phone}</p>
-                                                            </li>
+                                                            </li>*/}
                                                             <li>
-                                                                <p><span className="la la-calendar-check-o"></span>Posted 2 months ago</p>
+                                                                <p><span className="la la-check"></span>中三程度</p>
                                                             </li>
                                                         </ul>
                                                     </div>{/*<!-- End atbd listing meta -->*/}
@@ -63,7 +64,7 @@ class ListingCardGrid4 extends Component {
                                                 <div className="atbd_listing_bottom_content">
                                                     <div className="atbd_content_left">
                                                         <div className="atbd_listing_category">
-                                                            <a href=" "><span className="la la-map-marker"></span>Places &amp; Destination</a>
+                                                            <a href=" "><span className="la la-calendar-check-o"></span>一小時前發出</a>
                                                         </div>
                                                     </div>
                                                     <span className="atbd_content_right">

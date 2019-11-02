@@ -11,7 +11,7 @@ export class ContentBlockHome extends Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="section-title">
-                                    <h2>Why <span>Direo</span> for your Business?</h2>
+                                    <h2>為何選擇使用<span>Doxit</span>...?</h2>
                                     <p>Explore the popular listings around the world</p>
                                 </div>
                             </div>

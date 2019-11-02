@@ -1878,7 +1878,8 @@ p {
 }
 
 .atbd_listing_thumbnail_area .atbd_listing_image img {
-  width: 100%;
+  width: auto;
+  max-height: 220px;
 }
 
 .atbd_listing_thumbnail_area .atbd_thumbnail_overlay_content {
@@ -1919,9 +1920,13 @@ p {
   font-weight: 600;
 }
 
+.atbd_author--apply{
+  font-size: 3rem;
+}
+
 .atbd_author.atbd_author--thumb {
   position: absolute;
-  right: 30px;
+  right: 20px;
   bottom: 0;
   -webkit-transform: translateY(50%);
       -ms-transform: translateY(50%);

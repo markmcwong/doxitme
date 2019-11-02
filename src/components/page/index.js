@@ -56,7 +56,7 @@ class Index extends Component {
                 <section className="listing-cards section-bg section-padding">
                     <div className="container">
                         <SectionTitle 
-                            title="Best Listings Around the World" 
+                            title="現在需要輔導的學生"
                             content="Explore the popular listings around the world"
                         />
                         <div className="row">                        
@@ -76,7 +76,7 @@ class Index extends Component {
                 <ContentBlockHome />
     
                 {/* Place section start */}
-                <section className="places section-padding">
+                {/* <section className="places section-padding">
                     <div className="container">
                         <SectionTitle 
                             title="Destination We Love" 
@@ -91,11 +91,11 @@ class Index extends Component {
                             <PlaceList />
                         </div>
                     </div>
-                </section>
+                </section>*/}
                 {/* Place section end */}
     
                 {/* Testimonial section start */}
-                <section className="testimonial-wrapper section-padding--bottom">
+                <section className="testimonial-wrapper section-padding--botto section-padding">
                     <div className="container">
                         <SectionTitle 
                             title="Trusted By Over 4000+ Users" 
@@ -108,7 +108,7 @@ class Index extends Component {
                 </section>
                 {/* Testimonial section end */}
     
-                {/* Client section start */}
+                {/* Client section start
                 <section className="clients-logo-wrapper border-top p-top-100">
                     <div className="container">
                         <div className="row">
@@ -118,9 +118,9 @@ class Index extends Component {
                         </div>
                     </div>
                 </section>
-                {/* client section end */}
+                 client section end*/}
                 
-                <Subscribe />
+                {/*<Subscribe />*/}
                <Footer />
             </Fragment>
         )
