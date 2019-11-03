@@ -91,6 +91,18 @@
             placeholder: "Select a location",
             containerCssClass: "form-control"
         });
+        $("#at_biz_dir-subject").select2({
+            placeholder: "Select a category",
+            width: "100%",
+            containerCssClass: "form-control"
+        });
+
+        $("#at_biz_dir-level").select2({
+            multiple: false,
+            width: "100%",
+            placeholder: "Select a location",
+            containerCssClass: "form-control"
+        });
 
         $(".ad_search_category").select2({
             placeholder: "Select Category",

@@ -25,7 +25,7 @@ class Index extends Component {
         const light = this.props.logo[0].light;       
         return (
             <Fragment>
-            
+
 
                 {/* Header section start */}
                 <section className="intro-wrapper bgimage overlay overlay--dark">
@@ -96,7 +96,7 @@ class Index extends Component {
                 {/* Place section end */}
     
                 {/* Testimonial section start */}
-                <section className="testimonial-wrapper section-padding--botto section-padding">
+                <section className="testimonial-wrapper section-padding--bottom section-padding">
                     <div className="container">
                         <SectionTitle 
                             title="Trusted By Over 4000+ Users" 

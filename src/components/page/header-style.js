@@ -28,7 +28,7 @@ const HeaderStyle = (props) => {
                 </div>
 
                 <div className="bg-dark">
-                    <Header logo="./assets/img/logo-white.png" class="menu--light" />                    
+                    <Header logo="./assets/img/logo.png" class="menu--light" />
                 </div>
             </section>
 

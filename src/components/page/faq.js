@@ -17,7 +17,7 @@ const Faqs = (props) => {
                     <Header logo={light} class="menu--light" />                    
                 </div>
                 {/* <!-- ends: .mainmenu-wrapper --> */}
-                <BreadcrumbWraper title="Faq`s" />
+                <BreadcrumbWraper title="FAQ" />
             </section>
             {/* Header section end */}
 
@@ -33,7 +33,7 @@ const Faqs = (props) => {
                                 <div className="atbd_content_module atbd_faqs_module">
                                     <div className="atbd_content_module__tittle_area">
                                         <div className="atbd_area_title">
-                                            <h4><span className="la la-question-circle"></span>Lisiitng FAQ's</h4>
+                                            <h4><span className="la la-question-circle"></span>Listing FAQ's</h4>
                                         </div>
                                     </div>                                    
                                     <Accordion2 />                               
