@@ -18,11 +18,11 @@ export class NavItem extends Component {
                         </ul>
                     </li>
                     <li className="dropdown has_dropdown">
-                        <a href="# " className="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">How it works</a>
-                        <ul className="dropdown-menu" aria-labelledby="drop4">
+                        <a href="/all-categories" id="drop4">How it works</a>
+{/*                        <ul className="dropdown-menu" aria-labelledby="drop4">
                             <li><NavLink to="/all-categories">All Categories</NavLink></li>
                             <li><NavLink to="/all-locations">All Locations</NavLink></li>
-                        </ul>
+                        </ul>*/}
                     </li>
                     {/*<li className="dropdown has_dropdown">
                         <a className="dropdown-toggle" href="# " id="drop2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
