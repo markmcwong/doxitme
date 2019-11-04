@@ -20,20 +20,20 @@ class Login extends Component {
         var data = this.props.users
         const change = (e) => {
             const email = e.target.value;
-            const filter = data.filter(item => {
-                return email === item.email;
+            this.setState({
+                email: email
             })
 
-            if(filter.length) {
-                this.setState({
-                    disabled: true,
-                    email: email
-                })
-            } else {
-                this.setState({
-                    disabled: false
-                })
-            }
+            // if(filter.length) {
+            //     this.setState({
+            //         disabled: true,
+            //         email: email
+            //     })
+            // } else {
+            //     this.setState({
+            //         disabled: false
+            //     })
+            // }
         }
 
         const changePass = (e) => {
@@ -50,9 +50,20 @@ class Login extends Component {
                 return this.state.email === item.email && this.state.password === item.password
             });
 
-            if(filter.length) {
+            //if(filter.length) {
+            if(true) {
                 this.props.logindata(filter);
                 $("#login_modal").click();
+                console.log(this.state.email, this.state.password)
+                firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                    // ...
+                }).then(function (result) {
+                    console.log(result);
+                })
             } else {
                 alert('Password does not match!')
             }
@@ -93,8 +104,8 @@ class Login extends Component {
                                 <form action="/" id="login-form">
                                     <input onChange={change} type="text" className="form-control" placeholder="Username or Email" required />
 
-                                    <input onChange={changePass} type="password" className="form-control" placeholder="Password" required
-                                    disabled = { !this.state.disabled ? 'disabled' : false } />
+                                    <input onChange={changePass} type="password" className="form-control" placeholder="Password" required/>
+                                    // disabled = { !this.state.disabled ? 'disabled' : false }
 
                                     <div className="keep_signed custom-control custom-checkbox checkbox-outline checkbox-outline-primary">
                                         <input type="checkbox" className="custom-control-input" name="keep_signed_in" defaultValue={1} id="keep_signed_in" />
