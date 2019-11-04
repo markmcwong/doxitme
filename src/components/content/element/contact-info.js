@@ -19,11 +19,11 @@ export class ContactInfo extends Component {
                             </li>
                             <li>
                                 <div className="atbd_info_title"><span className="la la-envelope"></span>Email:</div>
-                                <span className="atbd_info">support@aazztech.com</span>
+                                <span className="atbd_info">doxit.me@gmail.com</span>
                             </li>
                             <li>
                                 <div className="atbd_info_title"><span className="la la-globe"></span>Website:</div>
-                                <a onClick={noAction} href="http://aazztech.com" className="atbd_info">www.aazztech.com</a>
+                                <a onClick={noAction} href="http://aazztech.com" className="atbd_info">doxit.me</a>
                             </li>
                         </ul>
                     </div>

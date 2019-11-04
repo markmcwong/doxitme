@@ -283,7 +283,7 @@ export class WidgetContactInfo extends Component {
                         <ul>
                             <li>
                                 <span className="la la-map-marker"></span>
-                                <span className="atbd_info">25 East Valley Road, Michigan</span>
+                                <span className="atbd_info">Hong Kong</span>
                             </li>
                             <li>
                                 <span className="la la-phone"></span>
@@ -291,11 +291,11 @@ export class WidgetContactInfo extends Component {
                             </li>
                             <li>
                                 <span className="la la-envelope"></span>
-                                <span className="atbd_info">support@aazztech.com</span>
+                                <span className="atbd_info">doxit.me@gmail.com</span>
                             </li>
                             <li>
                                 <span className="la la-globe"></span>
-                                <NavLink to="/at_demo" onClick={noAction} className="atbd_info">www.aazztech.com</NavLink>
+                                <NavLink to="/at_demo" onClick={noAction} className="atbd_info">doxit.me</NavLink>
                             </li>
                         </ul>
                     </div>{/*<!-- ends: .atbd_widget_contact_info -->*/}

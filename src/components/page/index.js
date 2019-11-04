@@ -14,6 +14,9 @@ import Testimonial from '../content/element/carousel/testimonial';
 import ClientLogo from '../content/element/carousel/client-logo';
 import { Subscribe } from '../content/element/subscribe';
 import { connect } from 'react-redux';
+import {BreadcrumbWraper} from "../content/element/breadcrumb";
+import {ContactForm2} from "../content/element/contact-form";
+import {WidgetContactInfo} from "../content/element/widget";
 
 const noAction = e => e.preventDefault();
 class Index extends Component {
@@ -43,7 +46,7 @@ class Index extends Component {
                 <section className="categories-cards section-padding-two">
                     <div className="container">
                         <SectionTitle 
-                            title="搜尋你能輔導的學生"
+                            title="搜尋你想輔導的學生"
                             content="Dominas trabem, tanquam rusticus musa. Cum cannabis messis, omnes silvaes talem pius, primus mineralises.  "
                         />
                         <div className="row">
@@ -123,6 +126,31 @@ class Index extends Component {
                 
                 {/*<Subscribe />*/}
                 <FloatingButton/>
+                <section className="contact-area section-bg p-top-100 p-bottom-70">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-8">
+                                <div className="widget atbd_widget widget-card contact-block">
+                                    <div className="atbd_widget_title">
+                                        <h4><span className="la la-envelope"></span> Contact Form</h4>
+                                    </div>
+                                    <div className="atbdp-widget-listing-contact contact-form">
+                                        <ContactForm2 />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="col-lg-4">
+                                <div className="widget atbd_widget widget-card">
+                                    <div className="atbd_widget_title">
+                                        <h4><span className="la la-phone"></span>Contact Info</h4>
+                                    </div>
+                                    <WidgetContactInfo />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                <Footer />
             </Fragment>
         )

@@ -16,7 +16,7 @@ const AllCategoris = (props) => {
                     <Header logo={light} class="menu--light" />                    
                 </div>
                 {/* <!-- ends: .mainmenu-wrapper --> */}
-                <BreadcrumbWraper title="How it works" />
+                <BreadcrumbWraper title="如何運作" />
             </section>
             {/* Header section end */}
             <section className="section-padding-1_7 border-bottom">
