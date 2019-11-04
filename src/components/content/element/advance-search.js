@@ -13,7 +13,7 @@ export class AdvSearch extends Component {
                             <div className="col-lg-10 offset-lg-1">
                                 <div className="search_title_area">
                                     <h2 className="title">真·免費補習中介</h2>
-                                    <p className="sub_title">創新全免補習中介</p>
+                                    <p className="sub_title">免費配對系統 - 絕不收費</p>
                                 </div>{/* ends: .search_title_area */}
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item col">

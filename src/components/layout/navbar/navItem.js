@@ -48,7 +48,7 @@ export class NavItem extends Component {
                             <li><NavLink to="/headers">Header Styles</NavLink></li>
                         </ul>
                     </li>*/}
-                    <li className="dropdown has_dropdown">
+                    {/*<li className="dropdown has_dropdown">
                         <a className="dropdown-toggle" href="# " id="drop1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             部落格
                         </a>
@@ -56,8 +56,15 @@ export class NavItem extends Component {
                             <li><NavLink to="/blog-right-sidebar">Blog Right Sidebar</NavLink></li>
                             <li><NavLink to="/blog-grid">Blog Grid Layout</NavLink></li>
                             <li><NavLink to="/blog-details1">Blog Details</NavLink></li>
-                            {/* <!-- dropdowns example --> */}                            
+                             <!-- dropdowns example -->
                         </ul>
+                    </li>*/}
+                    <li>
+                        <a href="/blog-right-sidebar" id="drop1">部落格</a>
+                        {/*                        <ul className="dropdown-menu" aria-labelledby="drop4">
+                            <li><NavLink to="/all-categories">All Categories</NavLink></li>
+                            <li><NavLink to="/all-locations">All Locations</NavLink></li>
+                        </ul>*/}
                     </li>
                 </ul>
             </Fragment>

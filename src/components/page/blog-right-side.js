@@ -17,7 +17,7 @@ const BlogRight = (props) => {
                     <Header logo={light} class="menu--light" />                    
                 </div>
                 {/* <!-- ends: .mainmenu-wrapper --> */}
-                <BreadcrumbWraper title="Blog Right Side Bar" />
+                <BreadcrumbWraper title="部落格" />
             </section>
             {/* Header section end */}
             <section className="blog-area section-padding-strict border-bottom">
