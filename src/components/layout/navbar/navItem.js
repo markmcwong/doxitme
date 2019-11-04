@@ -9,7 +9,7 @@ export class NavItem extends Component {
                         <NavLink to="/">主頁</NavLink>
                     </li>
                     <li>
-                        <a href="/all-listings-list" id="drop3">報價庫</a>
+                        <a href="/all-listings-grid" id="drop3">報價庫</a>
                         {/*
                         <a href="# " className="dropdown-toggle" id="drop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">報價庫</a>
                         <ul className="dropdown-menu" aria-labelledby="drop3">

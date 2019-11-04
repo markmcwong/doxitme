@@ -22,14 +22,13 @@ class Testimonial extends Component {
                             return (                       
                                 <div className="carousel-single" key={key}>
                                     <div className="author-thumb">
-                                        <img src={img} alt="" className="rounded-circle" />
+                                        <img src={img} alt="" height="90" className="rounded-circle" />
                                     </div>
                                     <div className="author-info">
                                         <h4>{title}</h4>
-                                        <span>Toronto, Canada</span>
+                                        <span>中西區</span>
                                     </div>
-                                    <p className="author-comment">Excepteur sint occaecat cupidatat non proident sunt in culpa officia deserunt mollit anim laborum sint occaecat cupidatat non proident. Occaecat cupidatat non proident
-                                        culpa officia deserunt mollit.</p>
+                                    <p className="author-comment">非常非常非常非常非常非常非常非常非常非常非常非常非常非常非常非常好！</p>
                                 </div>                  
                             )
                         })

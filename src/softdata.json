@@ -152,25 +152,25 @@
     ],
     "testimonial": [
         {
-            "img" : "./assets/img/tthumb1.jpg",
+            "img" : "./assets/img/listing-female.png",
             "id" : "1",
             "title" : "楊小姐",
             "location" : "Toronto, Canada"
         },
         {
-            "img" : "./assets/img/tthumb1.jpg",
+            "img" : "./assets/img/listing-female.png",
             "id" : "2",
             "title" : "楊小姐",
             "location" : "Toronto, Canada"
         },
         {
-            "img" : "./assets/img/tthumb1.jpg",
+            "img" : "./assets/img/listing-female.png",
             "id" : "1",
             "title" : "楊小姐",
             "location" : "Toronto, Canada"
         },
         {
-            "img" : "./assets/img/tthumb1.jpg",
+            "img" : "./assets/img/listing-female.png",
             "id" : "2",
             "title" : "楊小姐",
             "location" : "Toronto, Canada"

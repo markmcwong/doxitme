@@ -68,28 +68,28 @@ class Register extends Component {
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="signup_modal_label"><i className="la la-lock" /> Sign Up</h5>
+                                <h5 className="modal-title" id="signup_modal_label"><i className="la la-lock" /> 註冊</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <div className="modal-body">
                                 <form action="/" id="signup-form">
-                                    <input type="email" name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" placeholder="Email" required />
+                                    <input type="email" name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" placeholder="電郵或電話號碼" required />
                                     <div className="text-danger">{this.validator.message('Email', this.state.email, 'required|email')}</div>
 
-                                    <input type="password" name="password" value={this.state.password} onChange={this.setStateFromInput} className="form-control" placeholder="Password" required />
+                                    <input type="password" name="password" value={this.state.password} onChange={this.setStateFromInput} className="form-control" placeholder="密碼" required />
                                     <div className="text-danger">{this.validator.message('Password', this.state.password, 'required|string')}</div>
 
-                                    <button type="submit" onClick={addUser} className="btn btn-block btn-lg btn-gradient btn-gradient-two">Sign Up</button>
+                                    <button type="submit" onClick={addUser} className="btn btn-block btn-lg btn-gradient btn-gradient-two">註冊</button>
                                 </form>
                                 <div className="form-excerpts">
                                     <ul className="list-unstyled">
-                                        <li>Already a member? <NavLink to="/at_demo" data-toggle="modal" data-target="#login_modal">Sign In</NavLink></li>
-                                        <li><NavLink onClick={noAction} to="/at_fb_demo" onClick={noAction}>Recover Password</NavLink></li>
+                                        <li>已經是會員? <NavLink to="/at_demo" data-toggle="modal" data-target="#login_modal">立即登入</NavLink></li>
+                                        <li><NavLink onClick={noAction} to="/at_fb_demo" onClick={noAction}>忘記密碼</NavLink></li>
                                     </ul>
                                     <div className="social-login">
-                                        <span>Or Signup with</span>
+                                        <span>或用社交帳號註冊</span>
                                         <p><NavLink to="/at_fb_demo" onClick={noAction} className="btn btn-outline-secondary"><i className="fab fa-facebook-f" /> Facebook</NavLink><NavLink onClick={noAction} to="/at_demo" className="btn btn-outline-danger"><i className="fab fa-google-plus-g" /> Google</NavLink></p>
                                     </div>
                                 </div>

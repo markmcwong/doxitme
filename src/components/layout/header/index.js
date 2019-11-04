@@ -73,13 +73,13 @@ class Header extends Component {
                                                         <ul className="d-flex list-unstyled align-items-center">
                                                             <li>
                                                                 <NavLink to="/add-listing" className="btn btn-xs btn-gradient btn-gradient-two">
-                                                                    <span className="la la-plus"></span> Add Listing
+                                                                    <span className="la la-search"></span> 搜尋報價
                                                                 </NavLink>
                                                             </li>
                                                             <li>
-                                                                <a href=" " className="access-link" data-toggle="modal" data-target="#login_modal">Login</a>
-                                                                <span>or</span>
-                                                                <a href=" " className="access-link" data-toggle="modal" data-target="#signup_modal">Register</a>
+                                                                <a href=" " className="access-link" data-toggle="modal" data-target="#login_modal">登入</a>
+                                                                <span>或</span>
+                                                                <a href=" " className="access-link" data-toggle="modal" data-target="#signup_modal">註冊</a>
                                                             </li>
                                                         </ul>
                                                     ) : (

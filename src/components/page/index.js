@@ -102,8 +102,8 @@ class Index extends Component {
                 <section className="testimonial-wrapper section-padding--bottom section-padding">
                     <div className="container">
                         <SectionTitle 
-                            title="Trusted By Over 4000+ Users" 
-                            content="Here is what people say about Direo"
+                            title="超過四千名用家信賴"
+                            content="各位用家的評語"
                         />
                         <div className="row">
                             <Testimonial />
