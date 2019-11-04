@@ -6,10 +6,10 @@ export class NavItem extends Component {
             <Fragment>            
                 <ul className="navbar-nav">
                     <li>
-                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/">主頁</NavLink>
                     </li>
                     <li className="dropdown has_dropdown">
-                        <a href="# " className="dropdown-toggle" id="drop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Archives</a>
+                        <a href="# " className="dropdown-toggle" id="drop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">報價庫</a>
                         <ul className="dropdown-menu" aria-labelledby="drop3">
                             <li><NavLink to="/all-listings-grid">Listing Grid</NavLink></li>
                             <li><NavLink to="/all-listings-list">Listing List</NavLink></li>
@@ -18,7 +18,7 @@ export class NavItem extends Component {
                         </ul>
                     </li>
                     <li>
-                        <a href="/all-categories" id="drop4">How it works</a>
+                        <a href="/all-categories" id="drop4">如何運作</a>
 {/*                        <ul className="dropdown-menu" aria-labelledby="drop4">
                             <li><NavLink to="/all-categories">All Categories</NavLink></li>
                             <li><NavLink to="/all-locations">All Locations</NavLink></li>
@@ -50,7 +50,7 @@ export class NavItem extends Component {
                     </li>*/}
                     <li className="dropdown has_dropdown">
                         <a className="dropdown-toggle" href="# " id="drop1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Blog
+                            部落格
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="drop1">
                             <li><NavLink to="/blog-right-sidebar">Blog Right Sidebar</NavLink></li>
