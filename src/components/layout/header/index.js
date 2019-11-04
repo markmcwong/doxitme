@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { NavItem } from '../navbar/navItem';
 import { connect } from 'react-redux';
 import { LogOut } from '../../../Store/action/logoutAction';
+
 const noAction = e => e.preventDefault();
 class Header extends Component {    
     render() {
-                      
         const logdIn = () => {
             return this.props.login
         }

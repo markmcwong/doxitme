@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LogInAc } from '../../../../Store/action/loginAction';
 import $ from 'jquery';
+import * as firebase from 'firebase/app';
 
 const noAction = e => e.preventDefault();
 class Login extends Component {
-    constructor (props) {
-        super (props)
+    constructor(props) {
+        super(props)
         this.state = {
             email: '',
             password: '',
@@ -56,8 +57,27 @@ class Login extends Component {
                 alert('Password does not match!')
             }
         }
+        const signIn = () => {
+            var provider = new firebase.auth.GoogleAuthProvider();
 
-
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                console.log(user);
+                // ...
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+        }
         return (
             <Fragment>
                 <div className="modal fade" id="login_modal" tabIndex={-1} role="dialog" aria-labelledby="login_modal_label" aria-hidden="true">
@@ -93,7 +113,7 @@ class Login extends Component {
                                         <NavLink to="/at_demo" onClick={noAction} className="btn btn-outline-secondary">
                                             <i className="fab fa-facebook-f" /> Facebook
                                         </NavLink>
-                                        <NavLink to="/at_demo" onClick={noAction} className="btn btn-outline-danger">
+                                        <NavLink to="/" onClick={signIn} className="btn btn-outline-danger">
                                             <i className="fab fa-google-plus-g" /> Google
                                         </NavLink>
                                     </p>

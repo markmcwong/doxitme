@@ -1,5 +1,4 @@
-
-export const LogInAc = data => { 
+export const LogInAc = data => {
     var login = JSON.stringify(data)
     return (dispatch, getState) => {  
         dispatch( {

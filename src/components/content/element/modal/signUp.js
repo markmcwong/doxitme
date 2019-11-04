@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { SignUp } from '../../../../Store/action/userActions';
 import SimpleReactValidator from 'simple-react-validator';
 import $ from 'jquery';
+import * as firebase from 'firebase/app';
+import {LogInAc} from "../../../../Store/action/loginAction";
 
 const noAction = e => e.preventDefault();
 class Register extends Component {
@@ -32,15 +34,22 @@ class Register extends Component {
                 const filter = data.filter(item => {
                     return item.email === this.state.email
                 });
-
                 if(filter.length){
-                   alert("Email already exists");
+                    alert("Email already exists");
                 } else {
-                    data.push(this.state)
+
+                    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.log(error.code, error.message);
+                        // ...
+                    });
                     this.props.userAdd([...data]).then(() => {
                         alert('You submitted the form and stuff!');
                         $("#signup_modal").click();
-                    })
+                        this.props.logindata(filter);
+                    });
                     var success = true;
                     return success;
                 }
@@ -99,7 +108,9 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProp = dispatch => {
     return {
-        userAdd : (user) => dispatch(SignUp(user))
+        userAdd : (user) => dispatch(SignUp(user)),
+        logindata : (login) => dispatch(LogInAc(login))
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProp)(Register);

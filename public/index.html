@@ -25,7 +25,29 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDDDu-WaG3zjNJ1B3l9fgqQ3k09rVyc3pQ",
+            authDomain: "doxitme-57f3d.firebaseapp.com",
+            databaseURL: "https://doxitme-57f3d.firebaseio.com",
+            projectId: "doxitme-57f3d",
+            storageBucket: "doxitme-57f3d.appspot.com",
+            messagingSenderId: "38391311289",
+            appId: "1:38391311289:web:9152f3f2ec130f8d01e468",
+            measurementId: "G-RVPXH954NE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
     <script src="./assets/vendor_assets/js/jquery/jquery-1.12.3.js"></script>
     <script src="./assets/vendor_assets/js/bootstrap/popper.js"></script>
     <script src="./assets/vendor_assets/js/bootstrap/bootstrap.min.js"></script>
@@ -39,7 +61,8 @@
     <script src="./assets/vendor_assets/js/select2.full.min.js"></script>
     <script src="./assets/vendor_assets/js/slick.min.js"></script>
     <script src="./assets/theme_assets/js/locator.js"></script>
-    <script src="./assets/theme_assets/js/main.js"></script>   
+    <script src="./assets/theme_assets/js/main.js"></script>
+
     <!-- endinject-->
   </body>
 </html>

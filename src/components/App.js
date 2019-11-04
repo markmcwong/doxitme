@@ -22,8 +22,16 @@ import CheckoutAdvanced from './page/advanced';
 import Enterprise from './page/enterprise';
 import Invoice from './page/invoice';
 import AddListing from './page/add-listing';
- 
+import withFirebaseAuth from 'react-with-firebase-auth'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import firebaseConfig from '../firebaseConfig';
 
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseAppAuth = firebaseApp.auth();
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
+};
 function App(props) {  
   return (
     <Router basename={process.env.PUBLIC_URL} >        
@@ -55,4 +63,7 @@ function App(props) {
     </Router>    
   );
 }
-export default App;
+export default withFirebaseAuth({
+  providers,
+  firebaseAppAuth,
+})(App);
