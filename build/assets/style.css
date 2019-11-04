@@ -7251,13 +7251,13 @@ p {
 
 .directory_content_area .search_title_area .title {
   color: #fff;
-  line-height: 4.13333rem;
-  font-size: 2.66667rem;
+  line-height: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
 .directory_content_area .search_title_area .sub_title {
-  font-size: 1.13333rem;
+  font-size: 1.666rem;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }

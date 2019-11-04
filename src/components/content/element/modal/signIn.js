@@ -15,7 +15,22 @@ class Login extends Component {
             disabled: false
         }
     }
-
+    componentDidMount() {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(this.recaptcha, {
+            'size': 'normal',
+            'callback': function (response) {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                // ...
+            },
+            'expired-callback': function () {
+                // Response expired. Ask user to solve reCAPTCHA again.
+                // ...
+            }
+        });
+        window.recaptchaVerifier.render().then(function (widgetId) {
+            window.recaptchaWidgetId = widgetId;
+        });
+    }
     render() {
         var data = this.props.users
         const change = (e) => {
@@ -36,12 +51,29 @@ class Login extends Component {
             // }
         }
 
+
         const changePass = (e) => {
             const pass = e.target.value;
             this.setState({
                 password: pass
             })
 
+        }
+        const phoneLogin = () => {
+            var phoneNumber = "+85257446911";
+            console.log(phoneNumber);
+            var appVerifier = window.recaptchaVerifier;
+            firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+                .then(function (confirmationResult) {
+                    // SMS sent. Prompt user to type the code from the message, then sign the
+                    // user in with confirmationResult.confirm(code).
+                    window.confirmationResult = confirmationResult;
+                    console.log(confirmationResult);
+                }).catch(function (error) {
+                // Error; SMS not sent
+                console.log(error)
+                // ...
+            });
         }
 
         const Login = (e) => {
@@ -68,7 +100,7 @@ class Login extends Component {
                 alert('Password does not match!')
             }
         }
-        const signIn = () => {
+        const signInWithGmail = () => {
             var provider = new firebase.auth.GoogleAuthProvider();
 
             firebase.auth().signInWithPopup(provider).then(function (result) {
@@ -102,10 +134,9 @@ class Login extends Component {
                             </div>
                             <div className="modal-body">
                                 <form action="/" id="login-form">
-                                    <input onChange={change} type="text" className="form-control" placeholder="Username or Email" required />
+                                    <input onChange={change} type="text" className="form-control" placeholder="Phone Number or Email" required />
 
                                     <input onChange={changePass} type="password" className="form-control" placeholder="Password" required/>
-                                    // disabled = { !this.state.disabled ? 'disabled' : false }
 
                                     <div className="keep_signed custom-control custom-checkbox checkbox-outline checkbox-outline-primary">
                                         <input type="checkbox" className="custom-control-input" name="keep_signed_in" defaultValue={1} id="keep_signed_in" />
@@ -113,6 +144,8 @@ class Login extends Component {
                                     </div>
                                     <button onClick={Login} type="submit" className="btn btn-block btn-lg btn-gradient btn-gradient-two">Sign In</button>
                                 </form>
+                                <button onClick={phoneLogin} className="btn btn-block btn-lg btn-gradient btn-gradient-two">Phone</button>
+
                                 <div className="form-excerpts">
                                     <ul className="list-unstyled">
                                         <li>Not a member? <NavLink to="/at_demo" onClick={noAction}>Sign up</NavLink></li>
@@ -124,12 +157,13 @@ class Login extends Component {
                                         <NavLink to="/at_demo" onClick={noAction} className="btn btn-outline-secondary">
                                             <i className="fab fa-facebook-f" /> Facebook
                                         </NavLink>
-                                        <NavLink to="/" onClick={signIn} className="btn btn-outline-danger">
+                                        <NavLink to="/" onClick={signInWithGmail} className="btn btn-outline-danger">
                                             <i className="fab fa-google-plus-g" /> Google
                                         </NavLink>
                                     </p>
                                     </div>
                                 </div>
+                                <div ref={(ref)=>this.recaptcha=ref}></div>
                             </div>
                         </div>
                     </div>
