@@ -112,20 +112,20 @@ export class ContactForm2 extends Component {
         return (
             <form id="atbdp-contact-form" className="form-vertical">
                 <div className="form-group">
-                    <input type="text" name="name" value={this.state.name} onChange={this.setStateFromInput} className="form-control" id="atbdp-contact-name" placeholder="Name" />
+                    <input type="text" name="name" value={this.state.name} onChange={this.setStateFromInput} className="form-control" id="atbdp-contact-name" placeholder="姓名" />
                 </div>
                 <div className="text-danger">{this.validator.message('Name', this.state.name, 'required|string')}</div>
 
                 <div className="form-group">
-                    <input type="email" name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" id="atbdp-contact-email" placeholder="Email" />
+                    <input type="email" name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" id="atbdp-contact-email" placeholder="電郵" />
                 </div>
                 <div className="text-danger">{this.validator.message('Email', this.state.email, 'required|email')}</div>
 
                 <div className="form-group">
-                    <textarea className="form-control"  name="message" value={this.state.message} onChange={this.setStateFromInput} id="atbdp-contact-message" rows="3" placeholder="Message" ></textarea>
+                    <textarea className="form-control"  name="message" value={this.state.message} onChange={this.setStateFromInput} id="atbdp-contact-message" rows="3" placeholder="信息" ></textarea>
                 </div>
                                 
-                <button onClick={Shipping_Address} className="btn btn-gradient btn-gradient-one btn-block">Send Message</button>
+                <button onClick={Shipping_Address} className="btn btn-gradient btn-gradient-one btn-block">提交</button>
             </form>       
         )
     }

@@ -25,22 +25,22 @@ export class ContentBlockHome extends Component {
                                             <li>
                                                 <div className="icon"><span className="circle-secondary"><i className="la la-check-circle"></i></span></div>
                                                 <div className="list-content">
-                                                    <h4>Claim Listing</h4>
-                                                    <p>Excepteur sint occaecat cupidatat non proident sunt in culpa officia deserunt mollit.</p>
+                                                    <h4>以人為本</h4>
+                                                    <p>踢走收費中介</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="icon"><span className="circle-success"><i className="la la-money"></i></span></div>
                                                 <div className="list-content">
-                                                    <h4>Paid Listing</h4>
-                                                    <p>Excepteur sint occaecat cupidatat non proident sunt in culpa officia deserunt mollit.</p>
+                                                    <h4>以人為本</h4>
+                                                    <p>踢走收費中介</p>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="icon"><span className="circle-primary"><i className="la la-line-chart"></i></span></div>
                                                 <div className="list-content">
-                                                    <h4>Promote your Business</h4>
-                                                    <p>Excepteur sint occaecat cupidatat non proident sunt in culpa officia deserunt mollit.</p>
+                                                    <h4>以人為本</h4>
+                                                    <p>踢走收費中介</p>
                                                 </div>
                                             </li>
                                         </ul>{/*<!-- ends: .feature-list-wrapper -->*/}

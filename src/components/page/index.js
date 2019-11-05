@@ -47,7 +47,7 @@ class Index extends Component {
                     <div className="container">
                         <SectionTitle 
                             title="搜尋你想輔導的學生"
-                            content="Dominas trabem, tanquam rusticus musa. Cum cannabis messis, omnes silvaes talem pius, primus mineralises.  "
+                            content="根據你的學歷、背景、經驗，進行最佳配對"
                         />
                         <div className="row">
                             <CardCategoryGrid4 />
@@ -61,14 +61,14 @@ class Index extends Component {
                     <div className="container">
                         <SectionTitle 
                             title="現在需要輔導的學生"
-                            content="Explore the popular listings around the world"
+                            content="搜尋你下一個補習學生"
                         />
                         <div className="row">                        
                             <div className="listing-cards-wrapper col-lg-12">
                                 <div className="row">
                                     <CardListingGrid4 logdIn={logdIn()} />
                                     <div className="col-lg-12 text-center m-top-20">
-                                        <NavLink onClick={noAction} to="/at_demo" className="btn btn-gradient btn-gradient-two">Explore All 200+</NavLink>
+                                        <NavLink onClick={noAction} to="/at_demo" className="btn btn-gradient btn-gradient-two">瀏覽全部 200+</NavLink>
                                     </div>
                                 </div> 
                             </div>
@@ -132,7 +132,7 @@ class Index extends Component {
                             <div className="col-lg-8">
                                 <div className="widget atbd_widget widget-card contact-block">
                                     <div className="atbd_widget_title">
-                                        <h4><span className="la la-envelope"></span> Contact Form</h4>
+                                        <h4><span className="la la-envelope"></span> 有問題嗎？立即聯絡我們！</h4>
                                     </div>
                                     <div className="atbdp-widget-listing-contact contact-form">
                                         <ContactForm2 />
@@ -143,7 +143,7 @@ class Index extends Component {
                             <div className="col-lg-4">
                                 <div className="widget atbd_widget widget-card">
                                     <div className="atbd_widget_title">
-                                        <h4><span className="la la-phone"></span>Contact Info</h4>
+                                        <h4><span className="la la-phone"></span>聯絡資料</h4>
                                     </div>
                                     <WidgetContactInfo />
                                 </div>

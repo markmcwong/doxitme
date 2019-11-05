@@ -31,7 +31,7 @@ const AllCategoris = (props) => {
     )
 }
 const mapStateToProps = state => {
-    return {        
+    return {
         logo: state.logo
     }
 }
