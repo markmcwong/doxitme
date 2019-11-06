@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogIn from '../../content/element/modal/signIn';
 import Register from '../../content/element/modal/signUp';
+import {ContactForm2} from "../../content/element/contact-form";
+import {WidgetContactInfo} from "../../content/element/widget";
 const noAction = e => e.preventDefault();
 
 export class Footer extends Component {
@@ -25,14 +27,14 @@ export class Footer extends Component {
                     </div>
                 </div>
                 <footer className="footer-three footer-grey p-top-95">
-                    <div className="footer-top p-bottom-25">
+                    {/*<div className="footer-top p-bottom-25">
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-2 col-sm-6">
                                     <div className="widget widget_pages">
                                         <h2 className="widget-title">Company Info</h2>
                                         <ul className="list-unstyled">
-                                            <li className="page-item"><NavLink to="/about">About Us</NavLink></li>
+                                            <li className="page-item"><NavLink to="/about">關於我們</NavLink></li>
                                             <li className="page-item"><NavLink to="/contact">Conact Us</NavLink></li>
                                             <li className="page-item"><NavLink to="/all-listings-grid">Our Listings</NavLink></li>
                                             <li className="page-item"><NavLink to="/pricing-plans">Our Pricings</NavLink></li>
@@ -40,7 +42,7 @@ export class Footer extends Component {
                                             <li className="page-item"><NavLink onClick={noAction} to="/policy">Privacy Policy</NavLink></li>
                                         </ul>
                                     </div>
-                                </div>{/* ends: .col-lg-3 */}
+                                </div> ends: .col-lg-3
                                 <div className="col-lg-3 d-flex justify-content-lg-center  col-sm-6">
                                     <div className="widget widget_pages">
                                         <h2 className="widget-title">Helpful Links</h2>
@@ -53,7 +55,7 @@ export class Footer extends Component {
                                             <li className="page-item"><NavLink to="/about" onClick={noAction}>Packages</NavLink></li>
                                         </ul>
                                     </div>
-                                </div>{/* ends: .col-lg-3 */}
+                                </div> ends: .col-lg-3
                                 <div className="col-lg-3 col-sm-6">
                                     <div className="widget widget_social">
                                         <h2 className="widget-title">Connect with Us</h2>
@@ -64,8 +66,8 @@ export class Footer extends Component {
                                             <li><NavLink onClick={noAction} to="/instagram"><span className="instagram"><i className="fab fa-instagram" /></span> Instagram</NavLink></li>
                                             <li><NavLink onClick={noAction} to="/gplus"><span className="gplus"><i className="fab fa-google-plus-g" /></span> Google+</NavLink></li>
                                         </ul>
-                                    </div>{/* ends: .widget */}
-                                </div>{/* ends: .col-lg-3 */}
+                                    </div> ends: .widget
+                                </div> ends: .col-lg-3
                                 <div className="col-lg-4 col-sm-6">
                                     <div className="widget widget_text">
                                         <h2 className="widget-title">Direo on Mobile</h2>
@@ -76,12 +78,35 @@ export class Footer extends Component {
                                             <li><NavLink onClick={noAction} to="/google-play" className="btn btn-dark btn-md btn-icon btn-icon"><span className="fab fa-android" /> Google Play</NavLink></li>
                                             </ul>
                                         </div>
-                                    </div>{/* ends: .widget */}
-                                </div>{/* ends: .col-lg-3 */}
+                                    </div> ends: .widget
+                                </div> ends: .col-lg-3
                             </div>
                         </div>
-                    </div>{/* ends: .footer-top */}
+                    </div> ends: .footer-top */}
                     <div className="footer-bottom">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-8">
+                                    <div className="widget atbd_widget widget-card contact-block">
+                                        <div className="atbd_widget_title">
+                                            <h4><span className="la la-envelope"></span> 有問題嗎？立即聯絡我們！</h4>
+                                        </div>
+                                        <div className="atbdp-widget-listing-contact contact-form">
+                                            <ContactForm2 />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="col-lg-4">
+                                    <div className="widget atbd_widget widget-card">
+                                        <div className="atbd_widget_title">
+                                            <h4><span className="la la-phone"></span>聯絡資料</h4>
+                                        </div>
+                                        <WidgetContactInfo />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-12">

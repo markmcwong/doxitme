@@ -167,15 +167,14 @@ export class TagStyle extends Component {
                     </div>
                     <div className="widget-body atbdp-widget-tags">
                         <ul className="list-unstyled">
-                            <li><NavLink onClick={noAction} to="/at_demo">New York</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Car Parking</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Food</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Travelling</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Home</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Restaurant</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Place</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Office</NavLink></li>
-                            <li><NavLink onClick={noAction} to="/at_demo">Bike Parking</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">DSE</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">溫習</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">補習</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">導師</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">DSE</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">溫習</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">補習</NavLink></li>
+                            <li><NavLink onClick={noAction} to="/at_demo">導師</NavLink></li>
                         </ul>
                     </div>{/*<!-- ends: .widget-body -->*/}
                 </div>{/*<!-- ends: .widget -->                */}
@@ -319,18 +318,13 @@ export class Category extends Component {
                  <div className="widget-wrapper">
                     <div className="widget-default">
                         <div className="widget-header">
-                            <h6 className="widget-title">Categories</h6>
+                            <h6 className="widget-title">主題</h6>
                         </div>
                         <div className="widget-content">
                             <div className="category-widget">
                                 <ul>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Business</NavLink></li>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Finance</NavLink></li>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Industry Reports</NavLink></li>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Strategy</NavLink></li>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Technology</NavLink></li>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Marketing</NavLink></li>
-                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">Strategy</NavLink></li>
+                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">補習</NavLink></li>
+                                    <li className="arrow-list4"><NavLink onClick={noAction} to="/at_demo">DSE</NavLink></li>
                                 </ul>
                             </div>
                         </div>
@@ -347,7 +341,7 @@ export class PopularPost extends Component {
                <div className="widget-wrapper">
                     <div className="widget-default">
                         <div className="widget-header">
-                            <h6 className="widget-title">Popular Post</h6>
+                            <h6 className="widget-title">熱門文章</h6>
                         </div>
                         <div className="widget-content">
                             <div className="sidebar-post">
@@ -381,7 +375,7 @@ export class RecentPost extends Component {
                <div className="widget-wrapper">
                     <div className="widget-default">
                         <div className="widget-header">
-                            <h6 className="widget-title">Recent Post</h6>
+                            <h6 className="widget-title">最新文章</h6>
                         </div>
                         <div className="widget-content">
                             <div className="sidebar-post">
@@ -415,20 +409,19 @@ export class PopularTags extends Component {
                <div className="widget-wrapper">
                     <div className="widget-default">
                         <div className="widget-header">
-                            <h6 className="widget-title">Popular Tags</h6>
+                            <h6 className="widget-title">熱門話題</h6>
                         </div>
                         <div className="widget-content">
                             <div className="tags-widget">
                                 <ul>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Business</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Finance</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Strategy</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Global</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Marketing</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Technology</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Wordpress</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Solution</NavLink></li>
-                                    <li><NavLink to="/at_demo" onClick={noAction}>Bizillion</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">DSE</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">溫習</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">補習</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">導師</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">DSE</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">溫習</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">補習</NavLink></li>
+                                    <li><NavLink onClick={noAction} to="/at_demo">導師</NavLink></li>
                                 </ul>
                             </div>
                         </div>
@@ -446,12 +439,12 @@ export class StayUpdate extends Component {
               <div className="widget-wrapper">
                     <div className="widget-default">
                         <div className="widget-header">
-                            <h6 className="widget-title">Stay Updated</h6>
+                            <h6 className="widget-title">緊隨最新消息</h6>
                         </div>
                         <div className="widget-content">
                             <div className="subscribe-widget">
                                 <form action="#">
-                                    <input type="email" className="form-control m-bottom-20" placeholder="Enter email" required />
+                                    <input type="email" className="form-control m-bottom-20" placeholder="輸入電郵" required />
                                     <button className="btn btn-sm btn-primary shadow-none" type="submit">Subscribe</button>
                                 </form>
                             </div>
@@ -470,7 +463,7 @@ export class ConnentFollow extends Component {
               <div className="widget-wrapper">
                     <div className="widget-default">
                         <div className="widget-header">
-                            <h6 className="widget-title">Connect &amp; Follow</h6>
+                            <h6 className="widget-title">在社交網站找我們！</h6>
                         </div>
                         <div className="widget-content">
                             <div className="social social--small">

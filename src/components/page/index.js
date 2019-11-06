@@ -17,6 +17,7 @@ import { connect } from 'react-redux';
 import {BreadcrumbWraper} from "../content/element/breadcrumb";
 import {ContactForm2} from "../content/element/contact-form";
 import {WidgetContactInfo} from "../content/element/widget";
+import * as firebase from 'firebase';
 
 const noAction = e => e.preventDefault();
 class Index extends Component {
@@ -25,6 +26,28 @@ class Index extends Component {
         const logdIn = () => {
             return this.props.login
         }
+        var db = firebase.firestore();
+        db.collection("blog").add({
+            category: "Ada",
+            content: "Lovelace",
+            title: "test",
+            date: firebase.firestore.Timestamp.fromDate(new Date())
+        })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+
+        db.collection("blog").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                let data = doc.data();
+                console.log(data, data.category);
+
+            });
+        });
+
         const light = this.props.logo[0].light;       
         return (
             <Fragment>
@@ -76,9 +99,8 @@ class Index extends Component {
                     </div>
                 </section>
                 {/* Listing section end */}
-                
                 <ContentBlockHome />
-    
+
                 {/* Place section start */}
                 {/* <section className="places section-padding">
                     <div className="container">
@@ -126,32 +148,12 @@ class Index extends Component {
                 
                 {/*<Subscribe />*/}
                 <FloatingButton/>
-                <section className="contact-area section-bg p-top-100 p-bottom-70">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-8">
-                                <div className="widget atbd_widget widget-card contact-block">
-                                    <div className="atbd_widget_title">
-                                        <h4><span className="la la-envelope"></span> 有問題嗎？立即聯絡我們！</h4>
-                                    </div>
-                                    <div className="atbdp-widget-listing-contact contact-form">
-                                        <ContactForm2 />
-                                    </div>
-                                </div>
-                            </div>
+                {/*<section className="contact-area section-bg p-top-100 p-bottom-70">
 
-                            <div className="col-lg-4">
-                                <div className="widget atbd_widget widget-card">
-                                    <div className="atbd_widget_title">
-                                        <h4><span className="la la-phone"></span>聯絡資料</h4>
-                                    </div>
-                                    <WidgetContactInfo />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </section>*/}
+                <section className="section-bg">
+                    <Footer />
                 </section>
-               <Footer />
             </Fragment>
         )
     }
