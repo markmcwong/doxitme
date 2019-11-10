@@ -5451,7 +5451,10 @@ p {
 *****************************/
 .mainmenu-wrapper {
   position: relative;
+  /*position: fixed;*/
   z-index: 3;
+  /*background: darkblue;*/
+  /*width: 100%;*/
 }
 
 .menu-area .top-menu-area .logo-top {
