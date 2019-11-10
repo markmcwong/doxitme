@@ -42,7 +42,7 @@ class ListingCardGrid6 extends Component {
                                                     <div className="atbd_listing_meta">
                                                         <span className="atbd_meta atbd_listing_rating">{rating}<i className="la la-star"></i></span>
                                                         <span className="atbd_meta atbd_listing_price">{"$ "+price}</span>
-                                                        <span className={"atbd_meta atbd_badge_"+opCl}>{opCl} Now</span>
+                                                        <span className="atbd_meta atbd_badge_open">{opCl}</span>
                                                     </div>
                                                 ) : (
 
@@ -70,11 +70,11 @@ class ListingCardGrid6 extends Component {
                                                         <p><span className="la la-map-marker"></span>{location}</p>
                                                     </li>
                                                     <li>
-                                                        <p><span className="la la-phone"></span>{phone}</p>
+                                                        <p><span className="la la-check"></span>{phone}</p>
                                                     </li>
-                                                    <li>
+                                                    {/*<li>
                                                         <p><span className="la la-calendar-check-o"></span>Posted 2 months ago</p>
-                                                    </li>
+                                                    </li>*/}
                                                 </ul>
                                             </div>{/*<!-- End atbd listing meta -->*/}
                                         </div>{/*<!-- end .atbd_content_upper -->*/}

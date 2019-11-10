@@ -13,7 +13,7 @@ export class BreadcrumbWraper extends Component {
                                 <h1 className="page-title">{this.props.title}</h1>
                                 <nav aria-label="breadcrumb">
                                     <ol className="breadcrumb">
-                                        <li className="breadcrumb-item"><NavLink to="/">Home</NavLink></li>
+                                        <li className="breadcrumb-item"><NavLink to="/">主頁</NavLink></li>
                                         <li className="breadcrumb-item active" aria-current="page">{this.props.title}</li>
                                     </ol>
                                 </nav>

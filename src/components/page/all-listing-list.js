@@ -16,7 +16,7 @@ const AllListingGrid = (props) => {
                     <Header logo={light} class="menu--light" />                    
                 </div>
                 {/* <!-- ends: .mainmenu-wrapper --> */}
-                <BreadcrumbWraper title="All Listing" />
+                <BreadcrumbWraper title="報價庫" />
             </section>
             {/* Header section end */}
 

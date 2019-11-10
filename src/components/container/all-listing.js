@@ -180,8 +180,8 @@ class Listing extends Component {
                             <div className="col-lg-12">
                                 <div className="atbd_generic_header">
                                     <div className="atbd_generic_header_title">
-                                        <h4>All Items</h4>
-                                        <p>Total Listing Found: {Object.values(this.state.list).length}</p>
+                                        <h4>全部報價</h4>
+                                        <p>總共有: {Object.values(this.state.list).length}個報價</p>
                                     </div>{/*<!-- ends: .atbd_generic_header_title -->*/}
                                     <div className="atbd_listing_action_btn btn-toolbar" role="toolbar">
                                         {/* <!-- Views dropdown --> */}
@@ -190,31 +190,31 @@ class Listing extends Component {
                                         </div>
                                         {/* <!-- Orderby dropdown --> */}
                                         <div className="dropdown">
-                                            <a className="action-btn dropdown-toggle" href=" " role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by <span className="caret"></span></a>
+                                            <a className="action-btn dropdown-toggle" href=" " role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">順序<span className="caret"></span></a>
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                                                <a className="dropdown-item" onClick={sorting} href="a-z">A to Z ( title )</a>
-                                                <a className="dropdown-item" onClick={sorting} href="z-a">Z to A ( title )</a>
-                                                <a className="dropdown-item" onClick={sorting} href="new">Latest listings</a>
-                                                <a className="dropdown-item" onClick={sorting} href="old">Oldest listings</a>                                            
-                                                <a className="dropdown-item" onClick={sorting} href="low">Price ( low to high )</a>
-                                                <a className="dropdown-item" onClick={sorting} href="heigh">Price ( high to low )</a>                                            
+                                                {/*<a className="dropdown-item" onClick={sorting} href="a-z">A to Z ( title )</a>
+                                                <a className="dropdown-item" onClick={sorting} href="z-a">Z to A ( title )</a>*/}
+                                                <a className="dropdown-item" onClick={sorting} href="new">最新報價</a>
+                                                <a className="dropdown-item" onClick={sorting} href="old">最久報價</a>
+                                                <a className="dropdown-item" onClick={sorting} href="low">價錢由低至高</a>
+                                                <a className="dropdown-item" onClick={sorting} href="heigh">價錢由高至低</a>
                                             </div>
                                         </div>
                                     </div>{/*<!-- ends: .atbd_listing_action_btn -->*/}
                                 </div>{/*<!-- ends: .atbd_generic_header -->*/}
                             </div> {/*<!-- ends: .col-lg-12 -->*/}
-                            
+
                             <div className="col-lg-12 listing-items">
                                 <div className="row">
-                                    
+
                                     <div className="col-lg-4 order-lg-0 order-1 mt-5 mt-lg-0">
                                         <div className="listings-sidebar">
                                             <div className="search-area default-ad-search">
                                                 <form action="#">
                                                     <div className="form-group">
-                                                        <input type="text" 
-                                                            placeholder="What are you looking for?" 
-                                                            className="form-control" 
+                                                        <input type="text"
+                                                            placeholder="你想搜尋的條件"
+                                                            className="form-control"
                                                             onChange={search}
                                                         />
                                                     </div>{/*<!-- ends: .form-group -->*/}
@@ -222,11 +222,11 @@ class Listing extends Component {
                                                     <div className="form-group">
                                                         <div className="select-basic">
                                                             <select className="form-control" onChange={category}>
-                                                                <option value="All">Select Category</option>
+                                                                <option value="All">選擇科目</option>
                                                                 {
                                                                     Object.values(this.props.list).map((value, key) => {
                                                                         return (
-                                                                            <option key={key} value={value.category}>{value.category}</option>                                                                
+                                                                            <option key={key} value={value.category}>{value.category}</option>
                                                                         )
                                                                     })
                                                                 }
@@ -236,7 +236,7 @@ class Listing extends Component {
 
                                                     <div className="form-group">
                                                         <div className="position-relative">
-                                                            <input onChange={search} type="text" placeholder="City, state or zip code" className="form-control location-name" />
+                                                            <input onChange={search} type="text" placeholder="地點" className="form-control location-name" />
                                                             <button type="submit" className="locator"><span className="la la-crosshairs"></span></button>
                                                         </div>
                                                     </div>
@@ -244,7 +244,7 @@ class Listing extends Component {
                                                     <div className="form-group p-bottom-10">
                                                         <div className="price-range rs-primary">
                                                             <p className="d-flex justify-content-between">
-                                                                <span>Price Range: </span>
+                                                                <span>價錢範圍： </span>
                                                                 <span className="amount" id="amount1"></span>
                                                             </p>
                                                             <div className="slider-range"></div>                                                                                                                    
@@ -254,12 +254,12 @@ class Listing extends Component {
                                                     <div className="check-btn">
                                                         <div className="btn-checkbox active-color-secondary">
                                                             <label>
-                                                                <input type="checkbox" value="1" /><span className="color-success"><i className="la la-clock-o"></i> Open Now</span>
+                                                                <input type="checkbox" value="1" /><span className="color-success"><i className="la la-clock-o"></i>開放中</span>
                                                             </label>
                                                         </div>
                                                         <div className="btn-checkbox active-color-secondary">
                                                             <label>
-                                                                <input type="checkbox" value="1" onClick={range} /><span className="color-primary"><i className="la la-search"></i> Search</span>
+                                                                <input type="checkbox" value="1" onClick={range} /><span className="color-primary"><i className="la la-search"></i> 己完結</span>
                                                             </label>
                                                         </div>
                                                     </div>

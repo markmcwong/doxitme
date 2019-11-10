@@ -12,7 +12,7 @@ export class ContentBlockHome extends Component {
                             <div className="col-lg-12">
                                 <div className="section-title">
                                     <h2>為何選擇使用<span>Doxit</span>...?</h2>
-                                    <p>Explore the popular listings around the world</p>
+                                    <p>三大原因，缺一不可</p>
                                 </div>
                             </div>
                             <div className="col-lg-12">
@@ -25,8 +25,8 @@ export class ContentBlockHome extends Component {
                                             <li>
                                                 <div className="icon"><span className="circle-secondary"><i className="la la-check-circle"></i></span></div>
                                                 <div className="list-content">
-                                                    <h4>以人為本</h4>
-                                                    <p>踢走收費中介</p>
+                                                    <h4>免費配對系統</h4>
+                                                    <p>學生導師即時配對</p>
                                                 </div>
                                             </li>
                                             <li>
@@ -37,16 +37,16 @@ export class ContentBlockHome extends Component {
                                                 </div>
                                             </li>
                                             <li>
-                                                <div className="icon"><span className="circle-primary"><i className="la la-line-chart"></i></span></div>
+                                                <div className="icon"><span className="circle-primary"><i className="la la-map"></i></span></div>
                                                 <div className="list-content">
-                                                    <h4>以人為本</h4>
-                                                    <p>踢走收費中介</p>
+                                                    <h4>隨時隨地按你需要</h4>
+                                                    <p>地點，價錢由你決定</p>
                                                 </div>
                                             </li>
                                         </ul>{/*<!-- ends: .feature-list-wrapper -->*/}
                                         <ul className="action-btns list-unstyled">
-                                            <li><NavLink onClick={noAction} to="/at_demo" className="btn btn-success">See our Pricing</NavLink></li>
-                                            <li><NavLink onClick={noAction} to="/at_demo" className="btn btn-primary">Submit Listings</NavLink></li>
+                                            <li><NavLink onClick={noAction} to="/at_demo" className="btn btn-success">立即報價</NavLink></li>
+                                            <li><NavLink onClick={noAction} to="/at_demo" className="btn btn-primary">搜尋報價</NavLink></li>
                                         </ul>
                                     </div>
                                 </div>

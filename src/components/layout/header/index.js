@@ -73,7 +73,7 @@ class Header extends Component {
                                                         <ul className="d-flex list-unstyled align-items-center">
                                                             <li>
                                                                 <NavLink to="/add-listing" className="btn btn-xs btn-gradient btn-gradient-two">
-                                                                    <span className="la la-search"></span> 搜尋報價
+                                                                    <span className="la la-plus"></span> 立即報價
                                                                 </NavLink>
                                                             </li>
                                                             <li>

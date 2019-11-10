@@ -90,6 +90,18 @@ export class Footer extends Component {
                                     <div className="widget atbd_widget widget-card contact-block">
                                         <div className="atbd_widget_title">
                                             <h4><span className="la la-envelope"></span> 有問題嗎？立即聯絡我們！</h4>
+                                            <div className="dropdown">
+                                                <button className="btn dropdown-toggle btn-link" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    選擇聯絡性質
+                                                </button>
+                                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a className="dropdown-item" href="#">舉報留言</a>
+                                                    <a className="dropdown-item" href="#">功能建議</a>
+                                                    <a className="dropdown-item" href="#">其他</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="atbdp-widget-listing-contact contact-form">
                                             <ContactForm2 />
@@ -112,7 +124,7 @@ export class Footer extends Component {
                                 <div className="col-lg-12">
                                     <div className="footer-bottom--content">
                                         <NavLink to="/" className="footer-logo"><img src="./assets/img/logo.png" alt="" /></NavLink>
-                                        <p className="m-0 copy-text">©2019 Direo. Made with <span className="la la-heart-o" /> by <NavLink onClick={noAction} to="www.aazztech.com">Aazztech</NavLink></p>
+                                        <p className="m-0 copy-text">©2019 Doxit.me     <NavLink onClick={noAction} to="doxit.me">Terms of Condition Apply</NavLink></p>
                                         <ul className="list-unstyled lng-list">
                                             <li><NavLink onClick={noAction} to="/english">English</NavLink></li>
                                         </ul>

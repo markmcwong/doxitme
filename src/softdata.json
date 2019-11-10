@@ -47,54 +47,54 @@
         {
             "img" : "./assets/img/listing-male.png",
             "id" : "1",
-            "opCl" : "open",
+            "opCl" : "開放中",
             "badge" : "featured",
             "title" : "黃先生",
             "rating" : "中文科",
             "price" : "200",
             "location" : "旺角區",
-            "phone" : "(415) 796-3633",
-            "category" : "Restaurant",
-            "icon" : "la-glass"
-        },        
+            "phone" : "中三程度",
+            "category" : "一小時前發出",
+            "icon" : "la-calendar-check-o"
+        },
         {
             "img" : "./assets/img/listing-male.png",
             "id" : "2",
-            "opCl" : "open",
+            "opCl" : "開放中",
             "badge" : "popular",
             "title" : "李先生",
             "rating" : "通識科",
             "price" : "250",
             "location" : "觀塘區",
-            "phone" : "(415) 796-3633",
-            "category" : "Places & Destination",
-            "icon" : "la-map-marker"            
+            "phone" : "中三程度",
+            "category" : "一小時前發出",
+            "icon" : "la-calendar-check-o"
         },
         {
             "img" : "./assets/img/listing-female.png",
             "id" : "3",
             "badge" : "new",
-            "opCl" : "close",
+            "opCl" : "開放中",
             "title" : "陳小姐",
             "rating" : "物理科",
             "price" : "150",
             "location" : "西貢區",
-            "phone" : "(415) 796-3633",
-            "category" : "Shopping & Store",
-            "icon" : "la-shopping-cart"
+            "phone" : "中三程度",
+            "category" : "一小時前發出",
+            "icon" : "la-calendar-check-o"
         },
         {
             "img" : "./assets/img/listing-female.png",
             "id" : "4",
             "badge" : "new",
-            "opCl" : "open",
+            "opCl" : "開放中",
             "title" : "區陽小姐",
             "rating" : "數學科",
             "price" : "175",
             "location" : "屯門區",
-            "phone" : "(415) 796-3633",
-            "category" : "Art & History",
-            "icon" : "la-bank"
+            "phone" : "中三程度",
+            "category" : "一小時前發出",
+            "icon" : "la-calendar-check-o"
         },
         {
             "img" : "./assets/img/listing-male.png",
@@ -102,25 +102,25 @@
             "badge" : "new",
             "title" : "鄧先生",
             "rating" : "數學科",
-            "opCl" : "close",
+            "opCl" : "開放中",
             "price" : "170",
             "location" : "北角區",
-            "phone" : "(415) 796-3633",
-            "category" : "Hotel & Travel",
-            "icon" : "la-bed"
+            "phone" : "中三程度",
+            "category" : "一小時前發出",
+            "icon" : "la-calendar-check-o"
         },
         {
             "img" : "./assets/img/listing-female.png",
             "id" : "6",
             "badge" : "new",
-            "opCl" : "open",
+            "opCl" : "開放中",
             "title" : "楊小姐",
             "rating" : "中文科",
             "price" : "145",
             "location" : "灣仔區",
-            "phone" : "(415) 796-3633",
-            "category" : "Food & Drink",
-            "icon" : "la-glass"
+            "phone" : "中三程度",
+            "category" : "一小時前發出",
+            "icon" : "la-calendar-check-o"
         }
     ],
     "place": [

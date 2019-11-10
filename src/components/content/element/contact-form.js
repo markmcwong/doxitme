@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import SimpleReactValidator from 'simple-react-validator';
+import {NavLink} from "react-router-dom";
+const noAction = e => e.preventDefault();
 
 export class ContactForm extends Component {
     constructor (props) {
@@ -73,7 +75,8 @@ export class ContactForm2 extends Component {
             email:'',
             name: '',
             phone: '',
-            message: ''
+            message: '',
+            url: ''
         }
         this.validator = new SimpleReactValidator();
         this.setStateFromInput = this.setStateFromInput.bind(this);
@@ -120,9 +123,11 @@ export class ContactForm2 extends Component {
                     <input type="email" name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" id="atbdp-contact-email" placeholder="電郵" />
                 </div>
                 <div className="text-danger">{this.validator.message('Email', this.state.email, 'required|email')}</div>
-
                 <div className="form-group">
-                    <textarea className="form-control"  name="message" value={this.state.message} onChange={this.setStateFromInput} id="atbdp-contact-message" rows="3" placeholder="信息" ></textarea>
+                    <input type="url" name="reference-url" value={this.state.url} onChange={this.setStateFromInput} className="form-control" id="atbdp-contact-email" placeholder="網址" />
+                </div>
+                <div className="form-group">
+                    <textarea className="form-control" name="message" value={this.state.message} onChange={this.setStateFromInput} id="atbdp-contact-message" rows="3" placeholder="信息" ></textarea>
                 </div>
                                 
                 <button onClick={Shipping_Address} className="btn btn-gradient btn-gradient-one btn-block">提交</button>

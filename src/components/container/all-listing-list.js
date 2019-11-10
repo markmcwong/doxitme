@@ -203,7 +203,7 @@ class ListingList extends Component {
                                                 <form action="#">
                                                     <div className="form-group">
                                                         <input type="text" 
-                                                            placeholder="What are you looking for?" 
+                                                            placeholder="你想搜尋的條件?"
                                                             className="form-control" 
                                                             onChange={search}
                                                         />

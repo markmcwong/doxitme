@@ -45,7 +45,7 @@ class ListingCardGrid4 extends Component {
                                                     <div className="atbd_listing_meta">
                                                         <span className="atbd_meta atbd_listing_rating">{rating}<i className="la la-star"></i></span>
                                                         <span className="atbd_meta atbd_listing_price">{"$ "+price}</span>
-                                                        <span className={"atbd_meta atbd_badge_"+opCl}>{opCl} Now</span>
+                                                        <span className="atbd_meta atbd_badge_open">{opCl}</span>
                                                     </div>
                                                     <div className="atbd_listing_data_list">
                                                         <ul>
