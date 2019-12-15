@@ -5450,11 +5450,11 @@ p {
 	--- MENU
 *****************************/
 .mainmenu-wrapper {
-  position: relative;
-  /*position: fixed;*/
+  /*position: relative;*/
   z-index: 3;
-  /*background: darkblue;*/
-  /*width: 100%;*/
+  position: fixed;
+  background: rgba(12, 11, 29, 0.32);
+  width: 100%;
 }
 
 .menu-area .top-menu-area .logo-top {
@@ -5467,7 +5467,7 @@ p {
 }
 
 .menu-area .mainmenu__menu .navbar-nav > li.has_dropdown {
-  position: relative;
+  position: relative;s
 }
 
 .menu-area .mainmenu__menu .navbar-nav > li.has_dropdown .dropdown-toggle:after {
@@ -5568,7 +5568,7 @@ p {
 
 .menu-area.menu--light .top-menu-area {
   background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /*border-bottom: 1px solid rgba(255, 255, 255, 0.1);*/
 }
 
 .menu-area.menu--light .top-menu-area .logo-wrapper {
@@ -5773,7 +5773,7 @@ p {
 *****************************/
 .top-menu-area {
   background: #fff;
-  border-bottom: 1px solid #e3e6ef;
+  /*border-bottom: 1px solid #e3e6ef;*/
 }
 
 .top-menu-area .menu-fullwidth {
@@ -5791,7 +5791,7 @@ p {
 }
 
 .top-menu-area .menu-fullwidth .logo-wrapper {
-  border-right: 1px solid;
+  /*border-right: 1px solid;*/
 }
 
 .top-menu-area .menu-fullwidth .menu-right {
@@ -7301,8 +7301,12 @@ p {
   border-color: #dee2e6 #dee2e6 #fff;
 }
 .directory_content_area .nav-link.active{
-  background-color: #5295fc;
+  /*background-color: #5295fc;*/
   border-color: #dee2e6 #dee2e6 #fff;
+  background: -webkit-gradient(linear, left top, right top, from(#903af9), to(#f5548e));
+  background: -webkit-linear-gradient(left, #903af9, #f5548e);
+  background: -o-linear-gradient(left, #903af9, #f5548e);
+  background: linear-gradient(to right, #903af9, #f5548e);
   color: white;
 }
 .directory_content_area .nav-link{

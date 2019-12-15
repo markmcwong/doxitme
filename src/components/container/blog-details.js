@@ -84,7 +84,7 @@ const DetailsContent = (props) => {
                 <div className="social-share d-flex align-items-center">
                     <span className="m-right-15">Share Post: </span>
                     <ul className="social-share list-unstyled">
-                        <li><NavLink to='/at_demo' onClick={noAction} className="facebook"><span className="fab fa-facebook-f"></span></NavLink></li>
+                        <li><NavLink to='https://www.facebook.com/doxit.me' onClick={noAction} className="facebook"><span className="fab fa-facebook-f"></span></NavLink></li>
                         <li><NavLink to='/at_demo' onClick={noAction} className="twitter"><span className="fab fa-twitter"></span></NavLink></li>
                         <li><NavLink to='/at_demo' onClick={noAction} className="linkedin"><span className="fab fa-linkedin-in"></span></NavLink></li>
                         <li><NavLink to='/at_demo' onClick={noAction} className="gplus"><span className="fab fa-google-plus-g"></span></NavLink></li>
@@ -100,7 +100,7 @@ const DetailsContent = (props) => {
                     <p>Business and Finance Sequitur mutatin onem consuetudium. Investiga tiones demonstr aver unt lectores legere me lius quod kqua legunt saepius. Claritas est etiam pro cessus averus.</p>
                     <div className="social-basic ">
                         <ul className="list-unstyled social-basic">
-                            <li><NavLink to='/at_demo' onClick={noAction}><span className="fab fa-facebook-f"></span></NavLink></li>
+                            <li><a href='https://www.facebook.com/doxit.me'><span className="fab fa-facebook-f"></span></a></li>
                             <li><NavLink to='/at_demo' onClick={noAction}><span className="fab fa-twitter"></span></NavLink></li>
                             <li><NavLink to='/at_demo' onClick={noAction}><span className="fab fa-linkedin-in"></span></NavLink></li>
                             <li><NavLink to='/at_demo' onClick={noAction}><span className="fab fa-google-plus-g"></span></NavLink></li>

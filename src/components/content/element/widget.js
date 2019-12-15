@@ -40,7 +40,7 @@ export class SellerInfo extends Component {
                     </div>
                     {/* <!-- ends: .atbd_widget_contact_info --> */}
                     <div className="atbd_social_wrap">
-                        <p><NavLink to="/at_demo" onClick={noAction}><span className="fab fa-facebook-f"></span></NavLink></p>
+                        <p><a href='https://www.facebook.com/doxit.me'><span className="fab fa-facebook-f"></span></a></p>
                         <p><NavLink to="/at_demo" onClick={noAction}><span className="fab fa-twitter"></span></NavLink></p>
                         <p><NavLink to="/at_demo" onClick={noAction}><span className="fab fa-google-plus-g"></span></NavLink></p>
                         <p><NavLink to="/at_demo" onClick={noAction}><span className="fab fa-linkedin-in"></span></NavLink></p>
@@ -299,7 +299,7 @@ export class WidgetContactInfo extends Component {
                         </ul>
                     </div>{/*<!-- ends: .atbd_widget_contact_info -->*/}
                     <div className="atbd_social_wrap">
-                        <p><NavLink to="/at_demo" onClick={noAction} ><span className="fab fa-facebook-f"></span></NavLink></p>
+                        <p><a href='https://www.facebook.com/doxit.me'><span className="fab fa-facebook-f"></span></a></p>
                         <p><NavLink to="/at_demo" onClick={noAction} ><span className="fab fa-twitter"></span></NavLink></p>
                         <p><NavLink to="/at_demo" onClick={noAction} ><span className="fab fa-google-plus-g"></span></NavLink></p>
                         <p><NavLink to="/at_demo" onClick={noAction} ><span className="fab fa-linkedin-in"></span></NavLink></p>
@@ -468,7 +468,7 @@ export class ConnentFollow extends Component {
                         <div className="widget-content">
                             <div className="social social--small">
                                 <ul className="d-flex flex-wrap">
-                                    <li><NavLink to="/at_demo" onClick={noAction} className="facebook"><span className="fab fa-facebook-f"></span></NavLink></li>
+                                    <li><a href='https://www.facebook.com/doxit.me' className="facebook"><span className="fab fa-facebook-f"></span></a></li>
                                     <li><NavLink to="/at_demo" onClick={noAction} className="twitter"><span className="fab fa-twitter"></span></NavLink></li>
                                     <li><NavLink to="/at_demo" onClick={noAction} className="linkedin"><span className="fab fa-linkedin-in"></span></NavLink></li>
                                     <li><NavLink to="/at_demo" onClick={noAction} className="gplus"><span className="fab fa-google-plus-g"></span></NavLink></li>

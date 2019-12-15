@@ -29,7 +29,7 @@ export class ContactInfo extends Component {
                     </div>
                     <div className="atbd_director_social_wrap">
                         <a onClick={noAction} target="_blank" href="/at_demo"><span className="fab fa-behance"></span></a>
-                        <a onClick={noAction} target="_blank" href="/at_demo"><span className="fab fa-facebook-f"></span></a>
+                        <a onClick={noAction} target="_blank" href="https://www.facebook.com/doxit.me"><span className="fab fa-facebook-f"></span></a>
                         <a onClick={noAction} target="_blank" href="/at_demo"><span className="fab fa-twitter"></span></a>
                         <a onClick={noAction} target="_blank" href="/at_demo"><span className="fab fa-youtube"></span></a>
                     </div>
