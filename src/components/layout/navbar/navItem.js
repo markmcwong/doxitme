@@ -62,7 +62,7 @@ export class NavItem extends Component {
                         </ul>
                     </li>*/}
                     <li>
-                        <a href="/blog-right-sidebar" id="drop1">部落格</a>
+                        <NavLink to="/blog-right-sidebar" id="drop1">部落格</NavLink>
                         {/*                        <ul className="dropdown-menu" aria-labelledby="drop4">
                             <li><NavLink to="/all-categories">All Categories</NavLink></li>
                             <li><NavLink to="/all-locations">All Locations</NavLink></li>

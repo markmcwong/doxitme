@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 const noAction = e => e.preventDefault();
 export class AdvSearch extends Component {
-
     render() {
         return (
             <Fragment>
@@ -31,7 +30,7 @@ export class AdvSearch extends Component {
                                         <form action="/" className="search_form">
                                             <div className="atbd_seach_fields_wrapper">
                                                 <div className="single_search_field search_query">
-                                                    <input className="form-control search_fields" type="text" placeholder="你想搜尋的條件" />
+                                                    <input className="form-control search_fields" type="text" placeholder="你想報價的條件" />
                                                 </div>
                                                 <div className="single_search_field search_category">
                                                     <select className="search_fields" id="at_biz_dir-category">
@@ -50,7 +49,7 @@ export class AdvSearch extends Component {
                                                     </select>
                                                 </div>
                                                 <div className="atbd_submit_btn">
-                                                    <button type="submit" onClick={noAction} className="btn btn-block btn-gradient btn-gradient-one btn-md btn_search">搜尋</button>
+                                                    <button type="submit" onClick={noAction} className="btn btn-block btn-gradient btn-gradient-one btn-md btn_search">報價</button>
                                                 </div>
                                             </div>
                                         </form>{/* ends: .search_form */}
@@ -60,26 +59,26 @@ export class AdvSearch extends Component {
                                         <form action="/" className="search_form">
                                             <div className="atbd_seach_fields_wrapper">
                                                 <div className="single_search_field search_query">
-                                                    <input className="form-control search_fields" type="text" placeholder="What are you looking for?" />
+                                                    <input className="form-control search_fields" type="text" placeholder="你想搜尋的條件" />
                                                 </div>
                                                 <div className="single_search_field search_category">
                                                     <select className="search_fields" id="at_biz_dir-subject">
-                                                        <option value>Select a subject</option>
-                                                        <option value="chinese">Chinese</option>
-                                                        <option value="english">English</option>
-                                                        <option value="maths">Maths</option>
+                                                        <option value>選擇科目</option>
+                                                        <option value="chinese">中文</option>
+                                                        <option value="english">英文</option>
+                                                        <option value="maths">數學</option>
                                                     </select>
                                                 </div>
                                                 <div className="single_search_field search_location">
                                                     <select className="search_fields" id="at_biz_dir-level">
-                                                        <option value>Select level</option>
-                                                        <option value="primary">Primary School</option>
-                                                        <option value="middle">Form 1-3</option>
-                                                        <option value="high">Form 4-6</option>
+                                                        <option value>選擇等級</option>
+                                                        <option value="primary">小學</option>
+                                                        <option value="middle">中一至中三</option>
+                                                        <option value="high">中四至中六</option>
                                                     </select>
                                                 </div>
                                                 <div className="atbd_submit_btn">
-                                                    <button type="submit" onClick={noAction} className="btn btn-block btn-gradient btn-gradient-one btn-md btn_search">Search</button>
+                                                    <button type="submit" onClick={noAction} className="btn btn-block btn-gradient btn-gradient-one btn-md btn_search">搜尋</button>
                                                 </div>
                                             </div>
                                         </form>{/* ends: .search_form */}

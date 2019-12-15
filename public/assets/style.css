@@ -8933,5 +8933,7 @@ p {
     padding: 10px 0;
   }
 }
-
+.demo-editor {
+  background: white;
+}
 /*# sourceMappingURL=maps/style.css.map */

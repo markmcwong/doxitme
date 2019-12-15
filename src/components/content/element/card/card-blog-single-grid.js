@@ -3,15 +3,16 @@ import { NavLink } from 'react-router-dom';
 const noAction = e => e.preventDefault();
 class BlogSingle extends Component {
     render() {
-        const { blog } = this.props;        
+        const { blog } = this.props;
+        const { imgSrc, title, date, preview, id, author, type } = this.props.blog;
+
         return (
             <Fragment>
             {
-                Object.values(blog).slice(0, 4).map((value, key) => {
-                    const { imgSrc, title, date, content, id } = value;                    
-                    return (                       
-                        <div className={"blog-single"} key={key}>        
-                        
+                //Object.values(blog).slice(0, 4)
+                // Object.values(blog).map((value, key) => {
+                        <div className={"blog-single"}>
+
                             <div className="card post--card post--card2 ">
                                 <figure>
                                     <NavLink to={"/blog-details"+id}><img src={imgSrc} alt="" /></NavLink>
@@ -22,18 +23,17 @@ class BlogSingle extends Component {
                                 <div className="card-body">
                                     <h3><NavLink to={"/blog-details"+id}>{title}</NavLink></h3>
                                     <ul className="post-meta list-unstyled">
-                                        <li>{date}</li>
-                                        <li>by <NavLink to="/at_demo" onClick={noAction}>Aazztech</NavLink></li>
-                                        <li>in <NavLink to="/at_demo" onClick={noAction}>Event</NavLink></li>
+                                        <li>{date.toDate().toString()}</li>
+                                        <li>by <NavLink to="/at_demo" onClick={noAction}>{author}</NavLink></li>
+                                        <li>in <NavLink to="/at_demo" onClick={noAction}>{type}</NavLink></li>
                                         <li><NavLink to="/at_demo" onClick={noAction}>6 Comments</NavLink></li>
                                     </ul>
-                                    <p>{content}</p>
+                                    <p>{preview}</p>
                                 </div>
                             </div>
-                        
-                        </div>                 
-                    )
-                })
+
+                        </div>
+                // })
             }
             </Fragment>
         )

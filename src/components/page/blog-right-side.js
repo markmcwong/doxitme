@@ -7,6 +7,8 @@ import BlogSingle from '../content/element/card/card-blog-single-grid';
 import { Category, PopularPost, RecentPost, PopularTags, StayUpdate, ConnentFollow } from '../content/element/widget';
 
 const BlogRight = (props) => {
+    console.log(props)
+    if (!props.blog[0]) return <div>Loading...</div>
     const light = props.logo[0].light;
     return (
         <Fragment>
@@ -14,7 +16,7 @@ const BlogRight = (props) => {
             <section className="header-breadcrumb bgimage overlay overlay--dark">
                 <div className="bg_image_holder"><img src="./assets/img/breadcrumb1.jpg" alt="" /></div>
                 <div className="mainmenu-wrapper">
-                    <Header logo={light} class="menu--light" />                    
+                    <Header logo={light} class="menu--light" />
                 </div>
                 {/* <!-- ends: .mainmenu-wrapper --> */}
                 <BreadcrumbWraper title="部落格" />
@@ -25,7 +27,8 @@ const BlogRight = (props) => {
                     <div className="row">
                         <div className="col-md-8">
                             <div className="blog-posts">
-                                <BlogSingle blog={props.blog} />
+                                {/*<BlogSingle blog={props.blog}/>*/}
+                                {props.blog.map(info => <BlogSingle blog={info}/>)}
                             </div>
                         </div>
                         <div className="col-md-4 mt-5 mt-md-0">
@@ -42,15 +45,15 @@ const BlogRight = (props) => {
                                     </div>
 
                                     <Category />
-                                    <PopularPost blog={props.blog} />
-                                    <RecentPost blog={props.blog}/>
+                                    {/*<PopularPost blog={props.blog} />*/}
+                                    {/*<RecentPost blog={props.blog}/>*/}
                                     <PopularTags />
                                     <StayUpdate />
                                     <ConnentFollow />
                                 </div>{/*<!-- ends: .widget-wrapper -->*/}
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </section>

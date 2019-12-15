@@ -1,14 +1,14 @@
 import React, {Fragment} from 'react';
 import {NavLink} from 'react-router-dom';
+import {convertFromHTML} from 'draft-js';
 import {connect} from 'react-redux';
 const noAction = (e) => {
     e.preventDefault()
 }
 const DetailsContent = (props) => {
     const {contents, blog} = props;
-
-    const {imgSrc, title, content, date} = contents;
-    
+    const {imgSrc, title, date, content, author, type} = contents;
+    console.log(content)
     return (
         <Fragment>
             <div className="post-details">
@@ -19,15 +19,16 @@ const DetailsContent = (props) => {
                     <div className="post-header">
                         <h3>{title}</h3>
                         <ul className="list-unstyled">
-                            <li>{date}</li>
-                            <li>By <NavLink to='/at_demo' onClick={noAction}>Aazztech</NavLink></li>
-                            <li>In <NavLink to='/at_demo' onClick={noAction}>Finance</NavLink></li>
+                            <li>{date.toDate().toString()}</li>
+                            <li>By <NavLink to='/at_demo' onClick={noAction}>{author}</NavLink></li>
+                            <li>In <NavLink to='/at_demo' onClick={noAction}>{type}</NavLink></li>
                             <li><NavLink to='/at_demo' onClick={noAction}>5 Comments</NavLink></li>
                         </ul>
                     </div>
                     <div className="post-body">
-                        <p>{content}</p>
-                        <p>
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+
+                        {/*                       <p>
                             Business and Finance Sequitur mutatin onem consuetudium. Investiga tiones demonstr aver unt lectores legere me lius quod ii qua legunt saepius. Claritas est etiam pro cessus.</p>
                         <div className="m-top-45 m-bottom-50">
                             <blockquote className="blockquote blockquote1">
@@ -35,7 +36,7 @@ const DetailsContent = (props) => {
                                 <div className="quote-author">
                                     <p><span>Jeff Collins,</span> Founder of Tejarat Inc.</p>
                                 </div>
-                            </blockquote>{/*<!-- end: blockquote -->*/}
+                            </blockquote><!-- end: blockquote -->
                         </div>
                         <h4>Financial Analysis Overview</h4>
                         <p>Investig ationes demons trave runt lectores legere liusry quod was legunt saepius claritas Investig tones. Pharetra dui, nec tincidunt ante mauris eu diam. Phasellus verra nisl vitae cursus aei uismod supen dise saepius claritas investig. Investiga tiones demonstr averun d lectores legere melius.</p>
@@ -45,7 +46,7 @@ const DetailsContent = (props) => {
                                 <li>Redesign UI’s, implement new UI’s, and pick up Java as necessary.</li>
                                 <li>Explore and design dynamic compelling consumer experiences.</li>
                                 <li>Design and build scalable framework for web applications.</li>
-                            </ul>{/*<!-- ends: .bullet--list2 -->*/}
+                            </ul><!-- ends: .bullet--list2 -->
                         </div>
                         <h5>Elementum Tortorvel Pretium</h5>
                         <p>Investig ationes demons trave runt lectores legere liusry quod was legunt saepius claritas Investig tones. Pharetra dui, nec tincidunt ante mauris eu diam hasellus verra cursus.</p>
@@ -65,11 +66,11 @@ const DetailsContent = (props) => {
                                 <li>Business human capital research</li>
                                 <li>Services complex problems bringing</li>
                                 <li>Strategy works with senior executives</li>
-                            </ol>{/*<!-- ends .number-list-->*/}
+                            </ol><!-- ends .number-list-->
                         </div>
                         <img src="./assets/img/b3.jpg" alt="" />
                         <p className="m-top-30">Investig ationes demons trave runt lectores legere liusry quod was legunt saepius claritas Investig tones. Pharetra dui, nec tincidunt ante mauris eu diam. Phasellus verra nisl vitae cursus aei uismod supen dise saepius claritas investig. Investiga tiones.</p>
-                    </div>
+                    */}</div>
                 </div>
             </div>{/*<!-- ends: .post-details -->*/}
             <div className="post-bottom d-flex justify-content-between">
@@ -81,13 +82,13 @@ const DetailsContent = (props) => {
                     </ul>
                 </div>
                 <div className="social-share d-flex align-items-center">
-                    <span className="m-right-15">Share Post: </span>                    
+                    <span className="m-right-15">Share Post: </span>
                     <ul className="social-share list-unstyled">
                         <li><NavLink to='/at_demo' onClick={noAction} className="facebook"><span className="fab fa-facebook-f"></span></NavLink></li>
                         <li><NavLink to='/at_demo' onClick={noAction} className="twitter"><span className="fab fa-twitter"></span></NavLink></li>
                         <li><NavLink to='/at_demo' onClick={noAction} className="linkedin"><span className="fab fa-linkedin-in"></span></NavLink></li>
                         <li><NavLink to='/at_demo' onClick={noAction} className="gplus"><span className="fab fa-google-plus-g"></span></NavLink></li>
-                    </ul>                    
+                    </ul>
                 </div>
             </div>{/*<!-- ends: .post-bottom -->*/}
             <div className="post-author cardify border">
@@ -125,19 +126,19 @@ const DetailsContent = (props) => {
                 </div>
                 <div className="row">
                 {
-                    Object.values(blog).slice(6, 9).map((value, key) => {
+                    Object.values(blog).slice(0,3).map((value, key) => {
                         return (
                         <div className="col-lg-4 col-sm-6" key={value.id}>
                             <div className="single-post">
                                 <img src={value.imgSrc} alt="" />
-                                <h6><NavLink to={`/news-details${value.id}`} >Tejarat Starts Solutions Alliance Program</NavLink></h6>
-                                <p><span>{value.date}</span> - In <NavLink to='/at_demo' onClick={noAction}>{value.industry}</NavLink></p>
+                                <h6><NavLink to={`/news-details${value.id}`} >{title}</NavLink></h6>
+                                <p><span>{value.date.toDate().toString()}</span> - In <NavLink to='/at_demo' onClick={noAction}>{value.industry}</NavLink></p>
                             </div>
                         </div>
                         )
                     })
                 }
-                   
+
                 </div>
             </div>{/*<!-- ends: .related-post -->*/}
             <div className="comments-area m-top-60">

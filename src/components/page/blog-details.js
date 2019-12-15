@@ -8,6 +8,7 @@ import DetailsContent from '../container/blog-details';
 
 const BlogDetails = (props) => {
     const id = props.match.params.id;
+    if (!props.blog[0]) return <div>Loading...</div>
     const filter = Object.values(props.blog).filter((value) => {
         return value.id === id;
     });
@@ -19,7 +20,7 @@ const BlogDetails = (props) => {
             <section className="header-breadcrumb bgimage overlay overlay--dark">
                 <div className="bg_image_holder"><img src="./assets/img/breadcrumb1.jpg" alt="" /></div>
                 <div className="mainmenu-wrapper">
-                    <Header logo={light} class="menu--light" />                    
+                    <Header logo={light} class="menu--light" />
                 </div>
                 {/* <!-- ends: .mainmenu-wrapper --> */}
                 <BreadcrumbWraper title={filter[0].title} />
@@ -27,11 +28,11 @@ const BlogDetails = (props) => {
             {/* Header section end */}
 
             <section className="blog-area section-padding-strict border-bottom">
-        
+
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                             <DetailsContent contents={filter[0]} />                          
+                             <DetailsContent contents={filter[0]} />
                         </div>
                         <div className="col-md-4 mt-5 mt-md-0">
                             <div className="sidebar">
@@ -47,26 +48,26 @@ const BlogDetails = (props) => {
                                     </div>
 
                                     <Category />
-                                    <PopularPost blog={props.blog} />
-                                    <RecentPost blog={props.blog}/>
+                                    {/*<PopularPost blog={props.blog} />*/}
+                                    {/*<RecentPost blog={props.blog}/>*/}
                                     <PopularTags />
                                     <StayUpdate />
                                     <ConnentFollow />
                                 </div>{/*<!-- ends: .widget-wrapper -->*/}
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </section>
            <Footer />
-        </Fragment> 
+        </Fragment>
     )
 }
 const mapStateToProps = (state) => {
 
     return {
-        blog : state.blog,
+        blog: state.blog,
         logo: state.logo
     }
 }

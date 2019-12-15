@@ -18,40 +18,77 @@ import {BreadcrumbWraper} from "../content/element/breadcrumb";
 import {ContactForm2} from "../content/element/contact-form";
 import {WidgetContactInfo} from "../content/element/widget";
 import * as firebase from 'firebase';
+import { EditorState, convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
+import {SignUp} from "../../Store/action/userActions";
+import {LogInAc} from "../../Store/action/loginAction";
+import {fetchBlog} from "../../Store/action/fetchBlog";
 
 const noAction = e => e.preventDefault();
 class Index extends Component {
-    
+    state = {
+        editorState: EditorState.createEmpty(),
+    };
+    onEditorStateChange: Function = (editorState) => {
+        this.setState({
+            editorState,
+        });
+    };
+    componentDidMount()
+    {
+        // this.props.fetchBlog();
+    }
+    componentWillReceiveProps(newProps){
+        console.log(newProps);
+    }
     render() {
+        const { editorState } = this.state;
         const logdIn = () => {
             return this.props.login
-        }
-        var db = firebase.firestore();
-        db.collection("blog").add({
-            category: "Ada",
-            content: "Lovelace",
-            title: "test",
-            date: firebase.firestore.Timestamp.fromDate(new Date())
-        })
-            .then(function(docRef) {
-                console.log("Document written with ID: ", docRef.id);
-            })
-            .catch(function(error) {
-                console.error("Error adding document: ", error);
-            });
+        };
+/*        var db = firebase.firestore();
 
-        db.collection("blog").get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                let data = doc.data();
-                console.log(data, data.category);
+        db.collection("blog").get().then(res => {
+            console.log(
+            res.docs.map(doc => {
+                Object.assign(doc.data(), {title: doc.title})
+                return(doc.data())
+            }))
+        });*/
+        /*.then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let data = doc.data();
+            console.log(data, data.category);
 
-            });
         });
+    });*/
+        const light = this.props.logo[0].light;
+        const add = () => {
+            console.log(this.props);
+            var db = firebase.firestore();
+            db.collection("blog").add({
+                author: "Ada",
+                content: draftToHtml(convertToRaw(editorState.getCurrentContent())),
+                title: "十個DSE溫習的技巧",
+                imgSrc: "./assets/img/b1.jpg",
+                type: "tutoring",
+                date: firebase.firestore.Timestamp.fromDate(new Date())
+            })
+                .then(function(docRef) {
+                    console.log("Document written with ID: ", docRef.id);
+                    db.collection('blog').doc(docRef.id).get().then((doc) => {
+                        console.log(doc.data())
+                    }).catch( (error) => { console.log(error)})
 
-        const light = this.props.logo[0].light;       
+                })
+                .catch(function(error) {
+                    console.error("Error adding document: ", error);
+                });
+        };
         return (
             <Fragment>
-
 
                 {/* Header section start */}
                 <section className="intro-wrapper bgimage overlay overlay--dark">
@@ -63,8 +100,18 @@ class Index extends Component {
                     <AdvSearch />
                 </section>
                 {/* Header section end */}
+                <section className="categories-cards section-padding-two">
+                    <div className="container">
+                        <Editor
+                            editorState={editorState}
+                            wrapperClassName="demo-wrapper"
+                            editorClassName="demo-editor"
+                            onEditorStateChange={this.onEditorStateChange}
+                        />
+                        <button onClick={add}/>
+                    </div>
+                </section>
 
-    
                 {/* Category section start */}            
                 <section className="categories-cards section-padding-two">
                     <div className="container">
@@ -162,8 +209,13 @@ const mapStateToProps = state => {
     return {
         list: state.list,
         login : state.login,
-        logo: state.logo
+        logo: state.logo,
+        blog: state.blog
+    }
+};
+const mapDispatchToProp = dispatch => {
+    return {
+        fetchBlog : () => dispatch(fetchBlog())
     }
 }
-
-export default connect(mapStateToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProp)(Index);
