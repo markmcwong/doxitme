@@ -1,14 +1,9 @@
-var item = localStorage.getItem('login');
-
-const initState = JSON.parse(item);
-
-const UsersReducer = (state = initState, action) => {
+const loginReducer = (state = {}, action) => {
     switch (action.type) {
         case 'CREATE_LOGIN':
-            localStorage.setItem("login", action.login);
             return {
                 data: action.login,
-                    success: true
+                success: true
             }
             case 'CREATE_DELETE':
                 localStorage.removeItem("login");
@@ -17,4 +12,4 @@ const UsersReducer = (state = initState, action) => {
                 return state;
     }
 }
-export default UsersReducer
+export default loginReducer

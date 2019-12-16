@@ -5,18 +5,19 @@ import { connect } from 'react-redux';
 import { LogOut } from '../../../Store/action/logoutAction';
 
 const noAction = e => e.preventDefault();
-class Header extends Component {    
+class Header extends Component {
     render() {
         const logdIn = () => {
+            console.log(this.props)
             return this.props.login
         }
-       const logOut = (e) => {
+        const logOut = (e) => {
             e.preventDefault();
             this.props.logOutdata(null);
-       }
+        }
         return (
             <Fragment>
-            
+
                 <div className={"menu-area menu1 "+this.props.class}>
                     <div className="top-menu-area">
                         <div className="container-fluid">
@@ -96,7 +97,7 @@ class Header extends Component {
                                                                         <li><NavLink to="/author-profile">My Profile</NavLink></li>
                                                                         <li><NavLink to="/dashboard-listings">Deshboard</NavLink></li>
                                                                         <li><NavLink to="/at_demo">Favorite Listing</NavLink></li>
-                                                                        <li><NavLink to="/at_demo" onClick={logOut}>Logout</NavLink></li>
+                                                                        <li><a onClick={logOut}>Logout</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </li>
@@ -120,7 +121,7 @@ class Header extends Component {
                                                         <li><a href="dashboard-listings.html">My Listing</a></li>
                                                         <li><a href="dashboard-listings.html">Favorite Listing</a></li>
                                                         <li><a href="add-listing.html">Add Listing</a></li>
-                                                        <li><a href=" ">Logout</a></li>
+                                                        <li><a href="">Logout</a></li>
                                                     </ul>
                                                     <div className="search_area">
                                                         <form action="/">

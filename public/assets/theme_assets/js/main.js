@@ -1,16 +1,16 @@
 (function ($) {
     "use strict";
 
-    if(localStorage.getItem('user') === null) {
-        localStorage.setItem('user', '[{"email":"demo@demo.com","password":"demo", "username":"woadud akand"}]');
-    }
+    // if(localStorage.getItem('user') === null) {
+    //     localStorage.setItem('user', '[{"email":"demo@demo.com","password":"demo", "username":"woadud akand"}]');
+    // }
     //single listing
     var single_listing = $(".atbd_single_listing");
     var slWidth = single_listing.width();
     if(slWidth <= 300){
         single_listing.addClass("rs_fix");
-    }     
-        
+    }
+
     function react_version ()  {
         //setting css bg image as inline in html
         $(".bg_image_holder").each(function(){
@@ -21,7 +21,7 @@
                 "opacity": "1"
             }).children().attr('alt', imgLink)
         });
-        
+
         $(".atbdp_child_category").hide();
         $(".atbdp_parent_category > li > span").on("click", function () {
         $(this).siblings(".atbdp_child_category").slideToggle();
@@ -38,7 +38,7 @@
             $(this).parents(".search_module").addClass("active");
             e.stopPropagation();
         });
-        
+
         $(document).on("click", function () {
             $(".search_module").removeClass("active");
         });
@@ -62,7 +62,7 @@
             arrows: false,
             focusOnSelect: true
         });
-        
+
         //counter
         $(".count_up").counterUp({
             time: 1000
@@ -77,7 +77,7 @@
             $(this).parent().parent().addClass('selected').siblings().removeClass('selected');
             e.preventDefault();
         });
-        
+
         // initialize select 2
         $("#at_biz_dir-category").select2({
             placeholder: "Select a category",
@@ -148,7 +148,7 @@
 
         }, 'xml');
         });
-    
+
         // listing details gallery
         $(".gallery-images").slick({
             slidesToShow: 1,
@@ -166,7 +166,7 @@
             dots: false,
             arrows: false,
             focusOnSelect: true
-        });       
+        });
 
         $(".atbdp_child_category").hide();
         $(".atbdp_parent_category > li > span").on("click", function () {
@@ -201,7 +201,7 @@
             }
             $this.text(linkText);
         });
-        // Price Range Slider    
+        // Price Range Slider
 
         //add listing pricing options
         var priceOne = $("#price-input");
@@ -244,7 +244,7 @@
             menual_cor.hide();
         }
         });
-        
+
         /* offcanvas menu */
         var oc_menu = $(".offcanvas-menu__contents");
         $(".offcanvas-menu__user").on("click", function (e) {
@@ -299,7 +299,7 @@
             showSelectedRating: true
         });
 
-        
+
         /* review reply form */
         $(".review_content .reply").on("click", function (e) {
             e.preventDefault();
@@ -320,7 +320,7 @@
     $(document).ready(() => {
         video();
         review();
-        react_version(); 
+        react_version();
     });
 
     var url = window.location.href;
@@ -330,10 +330,10 @@
             url = url2;
             video();
             review();
-            react_version(); 
-            $(window).scrollTop(0);           
+            react_version();
+            $(window).scrollTop(0);
         }
-        /* END OF ON LOAD FUNCTION */        
+        /* END OF ON LOAD FUNCTION */
     }, 100);
 
 })(jQuery);

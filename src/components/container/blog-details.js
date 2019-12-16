@@ -2,13 +2,16 @@ import React, {Fragment} from 'react';
 import {NavLink} from 'react-router-dom';
 import {convertFromHTML} from 'draft-js';
 import {connect} from 'react-redux';
+import Commento from "./commento";
+import $ from 'jquery';
 const noAction = (e) => {
     e.preventDefault()
 }
 const DetailsContent = (props) => {
     const {contents, blog} = props;
-    const {imgSrc, title, date, content, author, type} = contents;
+    const {imgSrc, title, date, content, author, type, id} = contents;
     console.log(content)
+    if ($('#commento').length){ window.commento.main() }
     return (
         <Fragment>
             <div className="post-details">
@@ -27,7 +30,6 @@ const DetailsContent = (props) => {
                     </div>
                     <div className="post-body">
                         <div dangerouslySetInnerHTML={{ __html: content }} />
-
                         {/*                       <p>
                             Business and Finance Sequitur mutatin onem consuetudium. Investiga tiones demonstr aver unt lectores legere me lius quod ii qua legunt saepius. Claritas est etiam pro cessus.</p>
                         <div className="m-top-45 m-bottom-50">
@@ -70,9 +72,12 @@ const DetailsContent = (props) => {
                         </div>
                         <img src="./assets/img/b3.jpg" alt="" />
                         <p className="m-top-30">Investig ationes demons trave runt lectores legere liusry quod was legunt saepius claritas Investig tones. Pharetra dui, nec tincidunt ante mauris eu diam. Phasellus verra nisl vitae cursus aei uismod supen dise saepius claritas investig. Investiga tiones.</p>
-                    */}</div>
+                    */}
+                    </div>
                 </div>
             </div>{/*<!-- ends: .post-details -->*/}
+            <Commento id={id} />
+
             <div className="post-bottom d-flex justify-content-between">
                 <div className="tags">
                     <ul className="d-flex list-unstyled">
@@ -91,6 +96,7 @@ const DetailsContent = (props) => {
                     </ul>
                 </div>
             </div>{/*<!-- ends: .post-bottom -->*/}
+
             <div className="post-author cardify border">
                 <div className="author-thumb">
                     <img src="./assets/img/auth1.png" alt="" className="rounded-circle" />
@@ -141,7 +147,7 @@ const DetailsContent = (props) => {
 
                 </div>
             </div>{/*<!-- ends: .related-post -->*/}
-            <div className="comments-area m-top-60">
+            {/*<div className="comments-area m-top-60">
                 <div className="comment-title">
                     <h4>5 Comments</h4>
                 </div>
@@ -167,9 +173,9 @@ const DetailsContent = (props) => {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do they eiusmod
                                         tempor unt ut labore et dolore magna aliquat enim ad minim.</p>
                                 </div>
-                            </div>{/*<!-- ends: .media -->*/}
+                            </div><!-- ends: .media -->
                             <ul className="children list-unstyled">
-                                {/* <!-- Nested media object --> */}
+                                 <!-- Nested media object -->
                                 <li className="depth-2">
                                     <div className="media">
                                         <div>
@@ -192,8 +198,8 @@ const DetailsContent = (props) => {
                                         </div>
                                     </div>
                                 </li>
-                            </ul>{/*<!-- ends: .children -->*/}
-                        </li>{/*<!-- ends: .depth-1 -->*/}
+                            </ul><!-- ends: .children -->
+                        </li><!-- ends: .depth-1 -->
                         <li className="depth-1">
                             <div className="media">
                                 <div>
@@ -214,15 +220,15 @@ const DetailsContent = (props) => {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do they eiusmod
                                         tempor unt ut labore et dolore magna aliquat enim ad minim.</p>
                                 </div>
-                            </div>{/*<!-- ends: .media -->*/}
-                        </li>{/*<!-- ends: .depth-1 -->*/}
-                    </ul>{/*<!-- ends: .media-list -->*/}
-                </div>{/*<!-- ends: .comment-lists -->*/}
+                            </div><!-- ends: .media -->
+                        </li><!-- ends: .depth-1 -->
+                    </ul><!-- ends: .media-list -->
+                </div><!-- ends: .comment-lists -->
                 <div className="text-center m-top-50">
                     <NavLink to='/at_demo' onClick={noAction} className="btn btn-outline-secondary btn-icon icon-left"><i className="la la-refresh"></i> Load More</NavLink>
                 </div>
-            </div>{/*<!-- ends: .comment-area -->*/}
-            <div className="comment-form cardify m-top-60 margin-md-60 border">
+            </div>*/}{/*<!-- ends: .comment-area -->*/}
+            {/*<div className="comment-form cardify m-top-60 margin-md-60 border">
                 <div className="comment-title">
                     <h5>Leave a Reply</h5>
                     <span>Your email address will not be published. Required fields are marked <span className="color-primary">*</span></span>
@@ -245,7 +251,7 @@ const DetailsContent = (props) => {
                     </form>
                 </div>
 
-            </div>{/*<!-- ends: .comment-form -->*/}
+            </div>/*}{/*<!-- ends: .comment-form -->*/}
         </Fragment>
     )
 }

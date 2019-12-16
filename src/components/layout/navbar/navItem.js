@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom';
 export class NavItem extends Component {
     render() {
         return (
-            <Fragment>            
+            <Fragment>
                 <ul className="navbar-nav">
                     <li>
                         <NavLink to="/">主頁</NavLink>
                     </li>
                     <li>
-                        <a href="/all-listings-grid" id="drop3">報價庫</a>
+                        <NavLink to="/all-listings-grid" id="drop3">報價庫</NavLink>
                         {/*
                         <a href="# " className="dropdown-toggle" id="drop3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">報價庫</a>
                         <ul className="dropdown-menu" aria-labelledby="drop3">
@@ -20,14 +20,14 @@ export class NavItem extends Component {
                         </ul>*/}
                     </li>
                     <li>
-                        <a href="/all-categories" id="drop4">如何運作</a>
+                        <NavLink to="/all-categories" id="drop4">如何運作</NavLink>
 {/*                        <ul className="dropdown-menu" aria-labelledby="drop4">
                             <li><NavLink to="/all-categories">All Categories</NavLink></li>
                             <li><NavLink to="/all-locations">All Locations</NavLink></li>
                         </ul>*/}
                     </li>
                     <li>
-                        <a href="/faqs" id="drop5">FAQ</a>
+                        <NavLink to="/faqs" id="drop5">FAQ</NavLink>
                         {/*                        <ul className="dropdown-menu" aria-labelledby="drop4">
                             <li><NavLink to="/all-categories">All Categories</NavLink></li>
                             <li><NavLink to="/all-locations">All Locations</NavLink></li>

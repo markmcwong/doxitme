@@ -31,28 +31,35 @@ class Register extends Component {
         const addUser = (e) => {
             e.preventDefault();
             if (this.validator.allValid()) {
-                const filter = data.filter(item => {
-                    return item.email === this.state.email
-                });
-                if(filter.length){
-                    alert("Email already exists");
-                } else {
-
+                // const filter = data.filter(item => {
+                //     return item.email === this.state.email
+                // });
+                // if(filter.length){
+                //     alert("Email already exists");
+                // } else {
+                    const email = this.state.email;
+                    console.log(this.state.email)
                     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
                         // Handle Errors here.
                         var errorCode = error.code;
                         var errorMessage = error.message;
                         console.log(error.code, error.message);
                         // ...
-                    });
-                    this.props.userAdd([...data]).then(() => {
-                        alert('You submitted the form and stuff!');
+                    }).then((result)=>{
                         $("#signup_modal").click();
-                        this.props.logindata(filter);
-                    });
+                        this.props.logindata(email);
+                        var user = firebase.auth().currentUser;
+                        console.log(user);
+                        user.sendEmailVerification().then(function() {
+                            // Email sent.
+                        }).catch(function(error) {
+                            console.log(error)
+                            // An error happened.
+                        });
+                    })
                     var success = true;
                     return success;
-                }
+                // }
 
             } else {
                 this.validator.showMessages();

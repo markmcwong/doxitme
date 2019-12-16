@@ -22,8 +22,6 @@ import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
-import {SignUp} from "../../Store/action/userActions";
-import {LogInAc} from "../../Store/action/loginAction";
 import {fetchBlog} from "../../Store/action/fetchBlog";
 
 const noAction = e => e.preventDefault();
@@ -94,28 +92,18 @@ class Index extends Component {
                 <section className="intro-wrapper bgimage overlay overlay--dark">
                     <div className="bg_image_holder"><img src="./assets/img/index-background.jpg" alt="" /></div>
                     <div className="mainmenu-wrapper">
-                        <Header logo={light} class="menu--light" />                    
+                        <Header logo={light} class="menu--light" />
                     </div>
                     {/* <!-- ends: .mainmenu-wrapper --> */}
                     <AdvSearch />
                 </section>
                 {/* Header section end */}
-                <section className="categories-cards section-padding-two">
-                    <div className="container">
-                        <Editor
-                            editorState={editorState}
-                            wrapperClassName="demo-wrapper"
-                            editorClassName="demo-editor"
-                            onEditorStateChange={this.onEditorStateChange}
-                        />
-                        <button onClick={add}/>
-                    </div>
-                </section>
 
-                {/* Category section start */}            
+                {/* Category section start */}
                 <section className="categories-cards section-padding-two">
                     <div className="container">
-                        <SectionTitle 
+                        <div id="commento"/>
+                        <SectionTitle
                             title="搜尋你想輔導的學生"
                             content="根據你的學歷、背景、經驗，進行最佳配對"
                         />
@@ -125,22 +113,22 @@ class Index extends Component {
                     </div>
                 </section>
                 {/* Category section end */}
-    
+
                 {/* Listing section start */}
                 <section className="listing-cards section-bg section-padding">
                     <div className="container">
-                        <SectionTitle 
+                        <SectionTitle
                             title="現在需要輔導的學生"
                             content="搜尋你下一個補習學生"
                         />
-                        <div className="row">                        
+                        <div className="row">
                             <div className="listing-cards-wrapper col-lg-12">
                                 <div className="row">
                                     <CardListingGrid4 logdIn={logdIn()} />
                                     <div className="col-lg-12 text-center m-top-20">
                                         <NavLink onClick={noAction} to="/at_demo" className="btn btn-gradient btn-gradient-two">瀏覽全部 200+</NavLink>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -151,8 +139,8 @@ class Index extends Component {
                 {/* Place section start */}
                 {/* <section className="places section-padding">
                     <div className="container">
-                        <SectionTitle 
-                            title="Destination We Love" 
+                        <SectionTitle
+                            title="Destination We Love"
                             content="Explore best listings around the world by city"
                         />
                         <div className="row">
@@ -166,11 +154,11 @@ class Index extends Component {
                     </div>
                 </section>*/}
                 {/* Place section end */}
-    
+
                 {/* Testimonial section start */}
                 <section className="testimonial-wrapper section-padding--bottom section-padding">
                     <div className="container">
-                        <SectionTitle 
+                        <SectionTitle
                             title="超過四千名用家信賴"
                             content="各位用家的評語"
                         />
@@ -180,7 +168,7 @@ class Index extends Component {
                     </div>
                 </section>
                 {/* Testimonial section end */}
-    
+
                 {/* Client section start
                 <section className="clients-logo-wrapper border-top p-top-100">
                     <div className="container">
@@ -192,7 +180,7 @@ class Index extends Component {
                     </div>
                 </section>
                  client section end*/}
-                
+
                 {/*<Subscribe />*/}
                 <FloatingButton/>
                 {/*<section className="contact-area section-bg p-top-100 p-bottom-70">

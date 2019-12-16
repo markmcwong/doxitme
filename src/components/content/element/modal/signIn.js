@@ -14,6 +14,7 @@ class Login extends Component {
             password: '',
             disabled: false
         }
+        console.log(this.props)
     }
     componentDidMount() {
         window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(this.recaptcha, {
@@ -75,30 +76,54 @@ class Login extends Component {
                 // ...
             });
         }
-
+        const act = (email) => {
+            $("#login_modal").click();
+            this.props.logindata(email);
+        }
         const Login = (e) => {
             e.preventDefault();
-            const filter = data.filter(item => {
-                return this.state.email === item.email && this.state.password === item.password
-            });
-
+            // const filter = data.filter(item => {
+            //     return this.state.email === item.email && this.state.password === item.password
+            // });
             //if(filter.length) {
+
             if(true) {
-                this.props.logindata(filter);
-                $("#login_modal").click();
                 console.log(this.state.email, this.state.password)
-                firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log(errorCode, errorMessage);
-                    // ...
-                }).then(function (result) {
-                    console.log(result);
-                })
+                firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+                    .catch(function(error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.log(errorCode, errorMessage);
+                        // ...
+                    })
+                    .then(function (result) {
+                        console.log(result, result.user.email);
+                        act(result.user.email)
+                    })
             } else {
                 alert('Password does not match!')
             }
+        }
+        const signInwithFacebook = () => {
+            var provider = new firebase.auth.FacebookAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                act(result.user.email)
+                // ...
+            }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
         }
         const signInWithGmail = () => {
             var provider = new firebase.auth.GoogleAuthProvider();
@@ -109,6 +134,7 @@ class Login extends Component {
                 // The signed-in user info.
                 var user = result.user;
                 console.log(user);
+                act(result.user.email)
                 // ...
             }).catch(function (error) {
                 // Handle Errors here.
@@ -154,12 +180,12 @@ class Login extends Component {
                                     <div className="social-login">
                                     <span>或用社交帳號登錄</span>
                                     <p>
-                                        <NavLink to="/at_demo" onClick={noAction} className="btn btn-outline-secondary">
+                                        <button onClick={signInwithFacebook} className="btn btn-outline-secondary">
                                             <i className="fab fa-facebook-f" /> Facebook
-                                        </NavLink>
-                                        <NavLink to="/" onClick={signInWithGmail} className="btn btn-outline-danger">
+                                        </button>
+                                        <button onClick={signInWithGmail} className="btn btn-outline-danger">
                                             <i className="fab fa-google-plus-g" /> Google
-                                        </NavLink>
+                                        </button>
                                     </p>
                                     </div>
                                 </div>
