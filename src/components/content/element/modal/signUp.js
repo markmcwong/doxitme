@@ -1,21 +1,27 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { SignUp } from '../../../../Store/action/userActions';
+import { SignUp } from '../../../../Store/action/signupActions';
 import SimpleReactValidator from 'simple-react-validator';
-import $ from 'jquery';
-import * as firebase from 'firebase/app';
-import {LogInAc} from "../../../../Store/action/loginAction";
+import {loginUser} from "../../../../Store/action/loginAction";
+import {socialLoginUser} from "../../../../Store/action/socialLoginAction";
+import * as firebase from "firebase";
+import {bindActionCreators} from "redux";
+import {phoneLoginUser} from "../../../../Store/action/phoneLoginAction";
 
 const noAction = e => e.preventDefault();
 class Register extends Component {
-    constructor (props) {
-        super (props)
+    constructor(props) {
+        console.log(props)
+        super(props);
         this.state = {
-            username: 'woadud akand',
             email: '',
-            password: ''
-        }
+            password: '',
+            visibility: true,
+            verified: false,
+            code: '',
+            registerModal: true
+        };
         this.validator = new SimpleReactValidator();
         this.setStateFromInput = this.setStateFromInput.bind(this);
     }
@@ -23,11 +29,53 @@ class Register extends Component {
     setStateFromInput = (event) => {
         var obj = {};
         obj[event.target.name] = event.target.value;
+        console.log(event.target.value)
         this.setState(obj);
-    }
+        if(this.validator.fieldValid("phone")){
+            this.setState({"visibility":false})
+        }else{
+            this.setState({"visibility":true})
+        }
+        console.log(this.state, this.props)
+    };
 
+    componentDidMount() {
+        // firebase.auth().settings.appVerificationDisabledForTesting = true;
+
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(this.recaptcha, {
+            'size': 'normal',
+            'callback': function (response) {
+                console.log(response)
+            },
+            'expired-callback': function () {
+                // Response expired. Ask user to solve reCAPTCHA again.
+            }
+        });
+        window.recaptchaVerifier.render().then(function (widgetId) {
+            window.recaptchaWidgetId = widgetId;
+        });
+    }
     render() {
-        var data = this.props.users
+        const phoneLogin = () => {
+            var phoneNumber = this.state.email;
+            console.log(phoneNumber);
+            var appVerifier = window.recaptchaVerifier;
+            firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+                .then((confirmationResult) => {
+                    // SMS sent. Prompt user to type the code from the message, then sign the user in with confirmationResult.confirm(code).
+                    window.confirmationResult = confirmationResult;
+                    console.log(window.confirmationResult)
+                    this.setState({"verified":true})
+                }).catch(function (error) {
+                // Error; SMS not sent
+                console.log(error);
+                window.recaptchaVerifier.render().then(function(widgetId) {
+                    console.log(widgetId);
+                    window.recaptchaVerifier.reset(widgetId);
+                })
+            });
+        };
+        /*var data = this.props.users
         const addUser = (e) => {
             e.preventDefault();
             if (this.validator.allValid()) {
@@ -39,26 +87,6 @@ class Register extends Component {
                 // } else {
                     const email = this.state.email;
                     console.log(this.state.email)
-                    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-                        // Handle Errors here.
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        console.log(error.code, error.message);
-                        // ...
-                    }).then((result)=>{
-                        $("#signup_modal").click();
-                        this.props.logindata(email);
-                        var user = firebase.auth().currentUser;
-                        console.log(user);
-                        user.sendEmailVerification().then(function() {
-                            // Email sent.
-                        }).catch(function(error) {
-                            console.log(error)
-                            // An error happened.
-                        });
-                    })
-                    var success = true;
-                    return success;
                 // }
 
             } else {
@@ -67,7 +95,7 @@ class Register extends Component {
                 var success2 = false;
                 return success2;
             }
-        }
+        }*/
 
         return (
             <Fragment>
@@ -81,23 +109,44 @@ class Register extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form action="/" id="signup-form">
-                                    <input type="email" name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" placeholder="電郵或電話號碼" required />
-                                    <div className="text-danger">{this.validator.message('Email', this.state.email, 'required|email')}</div>
+                                <form action="/" id="login-form">
+                                    <input name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" placeholder="電郵或電話號碼" required />
+                                    <div className="text-danger">{this.validator.message('phone', this.state.email, 'required|phone')}</div>
 
-                                    <input type="password" name="password" value={this.state.password} onChange={this.setStateFromInput} className="form-control" placeholder="密碼" required />
+                                    <input type="password"  style={{display: this.state.visibility === false ? 'none' : 'block'}} name="password" value={this.state.password} onChange={this.setStateFromInput} type="password" className="form-control" placeholder="密碼" required/>
                                     <div className="text-danger">{this.validator.message('Password', this.state.password, 'required|string')}</div>
 
-                                    <button type="submit" onClick={addUser} className="btn btn-block btn-lg btn-gradient btn-gradient-two">註冊</button>
+                                    <div className="keep_signed custom-control custom-checkbox checkbox-outline checkbox-outline-primary">
+                                        <input type="checkbox" className="custom-control-input" name="keep_signed_in" defaultValue={1} id="keep_signed_in" />
+                                        <label htmlFor="keep_signed_in" className="not_empty custom-control-label">保留登入狀態</label>
+                                    </div>
+                                    <button type="submit"
+                                            style={{display: this.state.visibility === false ? 'none' : 'block'}} className="btn btn-block btn-lg btn-gradient btn-gradient-two">登入</button>
                                 </form>
+                                <button onClick={phoneLogin} className="btn btn-block btn-lg btn-gradient btn-gradient-two"
+                                        style={{display: this.state.visibility === true ? 'none' : 'block'}}>獲取短訊驗証碼登入</button>
+                                <div style={{display: this.state.visibility === true ? 'none' : 'block'}} ref={(ref)=>this.recaptcha=ref}></div>
+
+
+                                <div id="phoneVerification"  style={{display: this.state.verified === false ? 'none' : 'block'}}>
+                                    <input id="code" name="code" value={this.state.code} onChange={this.setStateFromInput} type="text" className="form-control" placeholder="驗証碼" />
+                                    <button onClick={this.props.phoneLoginUser(this.state.code, window.confirmationResult)} className="btn btn-block btn-lg btn-gradient btn-gradient-two">Confirm</button>
+                                </div>
                                 <div className="form-excerpts">
                                     <ul className="list-unstyled">
-                                        <li>已經是會員? <NavLink to="/at_demo" data-toggle="modal" data-target="#login_modal">立即登入</NavLink></li>
+                                        <li>已經是會員? <NavLink to="/at_demo" data-dismiss="modal" data-toggle="modal" data-target="#login_modal">立即登入</NavLink></li>
                                         <li><NavLink onClick={noAction} to="/at_fb_demo" onClick={noAction}>忘記密碼</NavLink></li>
                                     </ul>
                                     <div className="social-login">
                                         <span>或用社交帳號註冊</span>
-                                        <p><NavLink to="/at_fb_demo" onClick={noAction} className="btn btn-outline-secondary"><i className="fab fa-facebook-f" /> Facebook</NavLink><NavLink onClick={noAction} to="/at_demo" className="btn btn-outline-danger"><i className="fab fa-google-plus-g" /> Google</NavLink></p>
+                                        <p>
+                                            <button onClick={this.props.socialLoginUser("facebook")} className="btn btn-outline-secondary">
+                                                <i className="fab fa-facebook-f" /> Facebook
+                                            </button>
+                                            <button onClick={this.props.socialLoginUser("google")} className="btn btn-outline-danger">
+                                                <i className="fab fa-google-plus-g" /> Google
+                                            </button>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -110,14 +159,14 @@ class Register extends Component {
 }
 const mapStateToProps = state => {
     return {
-        users: state.users
+        // user: state.user
     }
 }
 const mapDispatchToProp = dispatch => {
     return {
         userAdd : (user) => dispatch(SignUp(user)),
-        logindata : (login) => dispatch(LogInAc(login))
-
+        socialLoginUser : (social) => bindActionCreators(socialLoginUser(social), dispatch),
+        phoneLoginUser : (code, confirmationResult) => bindActionCreators(phoneLoginUser(code, confirmationResult), dispatch)
     }
 }
 export default connect(mapStateToProps, mapDispatchToProp)(Register);

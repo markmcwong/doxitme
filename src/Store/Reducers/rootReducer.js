@@ -7,7 +7,7 @@ import clientReducer from './clientReducer';
 import galleryReducer from './galleryReducer';
 import gallery2Reducer from './gallery2Reducer';
 import blogReducer from './blogReducer';
-import usersReducer from './usersReducer';
+import modalReducer from './modalReducer';
 import loginReducer from './loginReducer';
 import logoReducer from './logoReducer';
 
@@ -20,8 +20,8 @@ const rootReducer = combineReducers({
     gallery: galleryReducer,
     gallery2: gallery2Reducer,
     blog: blogReducer,
-    users: usersReducer,
-    login: loginReducer,
+    modal: modalReducer,
+    user: loginReducer,
     logo: logoReducer,
 });
 export default rootReducer;

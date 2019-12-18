@@ -1,10 +1,15 @@
-export const LogOut = data => {
+import * as firebase from 'firebase';
 
-    return (dispatch, getState) => {
-        dispatch({
-            type: 'CREATE_DELETE',
-            login: data
-        })
-        return Promise.resolve()
+export const logOutUser = () => dispatch => {
+    return (dispatch) => {
+        firebase.auth().signOut().then(()=> {
+            // Sign-out successful.
+            dispatch({
+                type: 'USER_LOGOUT'
+            })
+        }).catch(function(error) {
+            console.log(error)
+            // An error happened.
+        });
     }
 }

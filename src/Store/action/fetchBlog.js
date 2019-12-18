@@ -1,4 +1,22 @@
+import * as firebase from 'firebase';
 
+export const fetchBlog = () => {
+    let db = firebase.firestore();
+    const request = db.collection("blog").get()
+    return (dispatch, getState) => {
+        request.then(res => {
+            const result = res.docs.map(doc => {
+                Object.assign(doc.data(), {title: doc.title});
+                return doc.data()
+            })
+            dispatch({
+                type: 'FETCH_BLOG',
+                result
+            })
+            return Promise.resolve()
+        });
+    }
+}
 // export default function fetchBlog(){
 //         return db.collection("blog").get().then(res => {
 //             return res.docs.map(doc => {
@@ -18,27 +36,6 @@
 //     }
 //
 // }
-import * as firebase from 'firebase';
-
-export const fetchBlog = () => {
-    let db = firebase.firestore();
-    const request = db.collection("blog").get()
-    return (dispatch, getState) => {
-        request.then(res => {
-            const result = res.docs.map(doc => {
-                Object.assign(doc.data(), {title: doc.title});
-                return doc.data()
-            })
-            console.log(result)
-            dispatch({
-                type: 'FETCH_BLOG',
-                result
-            })
-            return Promise.resolve()
-        });
-    }
-
-}
 // export default function fetchBlog()
 // {
 //     return function action(dispatch)

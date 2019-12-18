@@ -5,7 +5,7 @@ import { BreadcrumbWraper } from '../content/element/breadcrumb';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CardListingGrid4 from '../content/element/card/card-listing-grid-4';
-import { LogOut } from '../../Store/action/logoutAction';
+import { logOutUser } from '../../Store/action/logoutAction';
 
 const noAction = e => e.preventDefault();
 
@@ -25,13 +25,13 @@ class AuthDeshbord extends Component {
                 <section className="header-breadcrumb bgimage overlay overlay--dark">
                     <div className="bg_image_holder"><img src="./assets/img/breadcrumb1.jpg" alt="" /></div>
                     <div className="mainmenu-wrapper">
-                        <Header logo={light} class="menu--light" />                    
+                        <Header logo={light} class="menu--light" />
                     </div>
                     {/* <!-- ends: .mainmenu-wrapper --> */}
                     <BreadcrumbWraper title="Author Deshbord" />
                 </section>
                 {/* Header section end */}
-    
+
                 {
                     logdIn() !== null ? (
                         <section className="dashboard-wrapper section-bg p-bottom-70">
@@ -258,15 +258,15 @@ class AuthDeshbord extends Component {
                                         </div>
                                     </div>
                                 </div>{/*<!-- ends: .tab-pane -->*/}
-                            </div>        
+                            </div>
                         </section>
                     ) : (
                         <section className="dashboard-wrapper section-bg p-bottom-70 p-top-70">
                             <div className="container">
                                 <div className="alert alert-danger" role="alert">
                                     Please login First..............!
-                                </div>                                
-                            </div>                        
+                                </div>
+                            </div>
                         </section>
                     )
                 }
@@ -285,7 +285,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProp = dispatch => {
     return {
-        logOutdata : (login) => dispatch(LogOut(login))
+        logOutdata : (login) => dispatch(logOutUser(login))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProp)(AuthDeshbord);

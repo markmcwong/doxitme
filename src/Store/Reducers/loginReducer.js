@@ -1,15 +1,17 @@
+import $ from "jquery";
+
 const loginReducer = (state = {}, action) => {
+    console.log(action)
     switch (action.type) {
-        case 'CREATE_LOGIN':
-            return {
-                data: action.login,
-                success: true
-            }
-            case 'CREATE_DELETE':
-                localStorage.removeItem("login");
-                return localStorage.getItem("login")
-            default:
-                return state;
+        case 'USER_LOGIN':
+            return action.user;
+        // case 'USER_COOKIE':
+        //     return action.user
+        case 'USER_LOGOUT':
+            console.log(action)
+            return {};
+        default:
+            return state;
     }
 }
 export default loginReducer

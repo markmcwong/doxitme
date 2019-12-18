@@ -2,18 +2,29 @@ import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavItem } from '../navbar/navItem';
 import { connect } from 'react-redux';
-import { LogOut } from '../../../Store/action/logoutAction';
+import { logOutUser } from '../../../Store/action/logoutAction';
+import {openLoginModal} from "../../../Store/action/openModalAction";
+import $ from 'jquery';
+import {bindActionCreators} from "redux";
+import {socialLoginUser} from "../../../Store/action/socialLoginAction";
 
 const noAction = e => e.preventDefault();
 class Header extends Component {
+    componentDidMount() {
+        console.log(this.props)
+        // $(document).on("click", ".access-link", function () {
+        //     var myBookId = $(this).data('id');
+        //     console.log(myBookId)
+        // });
+    }
+    componentWillReceiveProps(nextProps: Readonly<P>, nextContext: any): void {
+        console.log(nextProps)
+    }
+
     render() {
         const logdIn = () => {
-            console.log(this.props)
-            return this.props.login
-        }
-        const logOut = (e) => {
-            e.preventDefault();
-            this.props.logOutdata(null);
+            console.log(this.props, this.props.user)
+            return this.props.user
         }
         return (
             <Fragment>
@@ -70,7 +81,7 @@ class Header extends Component {
                                             <div className="author-area">
                                                 <div className="author__access_area">
                                                 {
-                                                    logdIn() == null ? (
+                                                    Object.keys(this.props.user).length === 0 ? (
                                                         <ul className="d-flex list-unstyled align-items-center">
                                                             <li>
                                                                 <NavLink to="/add-listing" className="btn btn-xs btn-gradient btn-gradient-two">
@@ -78,7 +89,7 @@ class Header extends Component {
                                                                 </NavLink>
                                                             </li>
                                                             <li>
-                                                                <a href=" " className="access-link" data-toggle="modal" data-target="#login_modal">登入</a>
+                                                                <a href=" " className="access-link" data-toggle="modal" data-id="test" data-target="#login_modal">登入</a>
                                                                 <span>或</span>
                                                                 <a href=" " className="access-link" data-toggle="modal" data-target="#signup_modal">註冊</a>
                                                             </li>
@@ -97,7 +108,7 @@ class Header extends Component {
                                                                         <li><NavLink to="/author-profile">My Profile</NavLink></li>
                                                                         <li><NavLink to="/dashboard-listings">Deshboard</NavLink></li>
                                                                         <li><NavLink to="/at_demo">Favorite Listing</NavLink></li>
-                                                                        <li><a onClick={logOut}>Logout</a></li>
+                                                                        <li><a onClick={this.props.logOutdata()}>Logout</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </li>
@@ -109,30 +120,30 @@ class Header extends Component {
                                             </div>
 
                                             {/*<!-- end .author-area -->*/}
-                                            <div className={"offcanvas-menu d-none"}>
-                                                <a href=" " className="offcanvas-menu__user"><i className="la la-user"></i></a>
-                                                <div className="offcanvas-menu__contents">
-                                                    <a href=" " className="offcanvas-menu__close"><i className="la la-times-circle"></i></a>
-                                                    <div className="author-avatar">
-                                                        <img src="./assets/img/author-avatar.png" alt="" className="rounded-circle" />
-                                                    </div>
-                                                    <ul className="list-unstyled">
-                                                        <li><a href="dashboard-listings.html">My Profile</a></li>
-                                                        <li><a href="dashboard-listings.html">My Listing</a></li>
-                                                        <li><a href="dashboard-listings.html">Favorite Listing</a></li>
-                                                        <li><a href="add-listing.html">Add Listing</a></li>
-                                                        <li><a href="">Logout</a></li>
-                                                    </ul>
-                                                    <div className="search_area">
-                                                        <form action="/">
-                                                            <div className="input-group input-group-light">
-                                                                <input type="text" className="form-control search_field" placeholder="Search here..." autoComplete="off" />
-                                                            </div>
-                                                            <button type="submit" className="btn btn-sm btn-secondary">Search</button>
-                                                        </form>
-                                                    </div>{/*<!-- ends: .search_area -->*/}
-                                                </div>{/*<!-- ends: .author-info -->*/}
-                                            </div>{/*<!-- ends: .offcanvas-menu -->*/}
+                                            {/*<div className={"offcanvas-menu d-none"}>*/}
+                                            {/*    <a href=" " className="offcanvas-menu__user"><i className="la la-user"></i></a>*/}
+                                            {/*    <div className="offcanvas-menu__contents">*/}
+                                            {/*        <a href=" " className="offcanvas-menu__close"><i className="la la-times-circle"></i></a>*/}
+                                            {/*        <div className="author-avatar">*/}
+                                            {/*            <img src="./assets/img/author-avatar.png" alt="" className="rounded-circle" />*/}
+                                            {/*        </div>*/}
+                                            {/*        <ul className="list-unstyled">*/}
+                                            {/*            <li><a href="dashboard-listings.html">My Profile</a></li>*/}
+                                            {/*            <li><a href="dashboard-listings.html">My Listing</a></li>*/}
+                                            {/*            <li><a href="dashboard-listings.html">Favorite Listing</a></li>*/}
+                                            {/*            <li><a href="add-listing.html">Add Listing</a></li>*/}
+                                            {/*            <li><a href="">Logout</a></li>*/}
+                                            {/*        </ul>*/}
+                                            {/*        <div className="search_area">*/}
+                                            {/*            <form action="/">*/}
+                                            {/*                <div className="input-group input-group-light">*/}
+                                            {/*                    <input type="text" className="form-control search_field" placeholder="Search here..." autoComplete="off" />*/}
+                                            {/*                </div>*/}
+                                            {/*                <button type="submit" className="btn btn-sm btn-secondary">Search</button>*/}
+                                            {/*            </form>*/}
+                                            {/*        </div>/!*<!-- ends: .search_area -->*!/*/}
+                                            {/*    </div>/!*<!-- ends: .author-info -->*!/*/}
+                                            {/*</div>/!*<!-- ends: .offcanvas-menu -->*!/*/}
                                         </div>{/*<!-- ends: .menu-right -->*/}
                                     </div>
                                 </div>
@@ -149,12 +160,13 @@ class Header extends Component {
 }
 const mapStateToProps = state => {
     return {
-        login : state.login
+        user: state.user
     }
 }
 const mapDispatchToProp = dispatch => {
     return {
-        logOutdata : (login) => dispatch(LogOut(login))
+        logOutdata : () => bindActionCreators(logOutUser(), dispatch)
+        // openModal : (modal) => dispatch(openLoginModal(modal))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProp)(Header)

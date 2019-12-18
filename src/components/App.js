@@ -26,27 +26,36 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../firebaseConfig';
+import {fetchBlog} from "../Store/action/fetchBlog";
+import {checkCurrentUser} from "../Store/action/checkCurrentUserAction";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
-function App(props) {  
+
+function onAppInit(dispatch) {
+  dispatch(fetchBlog())
+  dispatch(checkCurrentUser())
+/*  onEnter={onAppInit(props.store.dispatch)}*/
+}
+
+function App(props) {
   return (
-    <Router basename={process.env.PUBLIC_URL} >        
+    <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Route exact path = '/' component = { Index } />          
-          <Route path = '/all-listings-grid' component = { AllListingGrid } />          
-          <Route path = '/all-listings-list' component = { AllListingList } />          
-          <Route path = '/listing-details:id' component = { ListingDetails } />          
-          <Route path = '/all-categories' component = { Category } />          
-          <Route path = '/all-locations' component = { Location } />          
-          <Route path = '/pricing-plans' component = { Pricing } />          
-          <Route path = '/faqs' component = { Faq } />          
-          <Route path = '/about' component = { About } />          
-          <Route path = '/contact' component = { Contact } />          
-          <Route path = '/cards' component = { Cards } />          
+          <Route exact path = '/' component = { Index } />
+          <Route path = '/all-listings-grid' component = { AllListingGrid } />
+          <Route path = '/all-listings-list' component = { AllListingList } />
+          <Route path = '/listing-details:id' component = { ListingDetails } />
+          <Route path = '/all-categories' component = { Category } />
+          <Route path = '/all-locations' component = { Location } />
+          <Route path = '/pricing-plans' component = { Pricing } />
+          <Route path = '/faqs' component = { Faq } />
+          <Route path = '/about' component = { About } />
+          <Route path = '/contact' component = { Contact } />
+          <Route path = '/cards' component = { Cards } />
           <Route path = '/headers' component = { HeaderStyle } />
           <Route path = '/blog-right-sidebar' component = { BlogRightSide } />
           <Route path = '/blog-grid' component = { BlogGrid } />
@@ -58,11 +67,12 @@ function App(props) {
           <Route path = '/enterprise' component = { Enterprise } />
           <Route path = '/invoice' component = { Invoice } />
           <Route path = '/add-listing' component = { AddListing } />
-                   
+
         </Switch>
-    </Router>    
+    </Router>
   );
 }
+
 export default withFirebaseAuth({
   providers,
   firebaseAppAuth,
