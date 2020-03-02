@@ -29,14 +29,12 @@ class Register extends Component {
     setStateFromInput = (event) => {
         var obj = {};
         obj[event.target.name] = event.target.value;
-        console.log(event.target.value)
         this.setState(obj);
         if(this.validator.fieldValid("phone")){
             this.setState({"visibility":false})
         }else{
             this.setState({"visibility":true})
         }
-        console.log(this.state, this.props)
     };
 
     componentDidMount() {
@@ -120,8 +118,7 @@ class Register extends Component {
                                         <input type="checkbox" className="custom-control-input" name="keep_signed_in" defaultValue={1} id="keep_signed_in" />
                                         <label htmlFor="keep_signed_in" className="not_empty custom-control-label">保留登入狀態</label>
                                     </div>
-                                    <button type="submit"
-                                            style={{display: this.state.visibility === false ? 'none' : 'block'}} className="btn btn-block btn-lg btn-gradient btn-gradient-two">登入</button>
+                                    <button type="button" onClick={this.props.userAdd(this.state.email, this.state.password)} style={{display: this.state.visibility === false ? 'none' : 'block'}} className="btn btn-block btn-lg btn-gradient btn-gradient-two">註冊</button>
                                 </form>
                                 <button onClick={phoneLogin} className="btn btn-block btn-lg btn-gradient btn-gradient-two"
                                         style={{display: this.state.visibility === true ? 'none' : 'block'}}>獲取短訊驗証碼登入</button>
@@ -164,7 +161,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProp = dispatch => {
     return {
-        userAdd : (user) => dispatch(SignUp(user)),
+        userAdd : (email,password) => bindActionCreators(SignUp(email,password),dispatch),
         socialLoginUser : (social) => bindActionCreators(socialLoginUser(social), dispatch),
         phoneLoginUser : (code, confirmationResult) => bindActionCreators(phoneLoginUser(code, confirmationResult), dispatch)
     }

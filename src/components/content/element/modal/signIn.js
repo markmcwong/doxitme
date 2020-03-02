@@ -27,9 +27,7 @@ class Login extends Component {
     }
 
     setStateFromInput = (event) => {
-        var obj = {};
-        obj[event.target.name] = event.target.value;
-        this.setState(obj);
+        this.setState({[event.target.name]: event.target.value});
         if(this.validator.fieldValid("phone")){
             this.setState({"visibility":false})
         }
@@ -82,7 +80,7 @@ class Login extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form action="/" id="login-form">
+                                <form id="login-form">
                                     <input name="email" value={this.state.email} onChange={this.setStateFromInput} className="form-control" placeholder="電郵或電話號碼" required />
                                     <div className="text-danger">{this.validator.message('phone', this.state.email, 'required|phone')}</div>
 
@@ -93,7 +91,7 @@ class Login extends Component {
                                         <input type="checkbox" className="custom-control-input" name="keep_signed_in" defaultValue={1} id="keep_signed_in" />
                                         <label htmlFor="keep_signed_in" className="not_empty custom-control-label">保留登入狀態</label>
                                     </div>
-                                    <button onClick={this.props.loginUser(this.state.email, this.state.password)}
+                                    <button onClick={this.props.loginUser(this.state.email, this.state.password)} type="button"
                                             style={{display: this.state.visibility === false ? 'none' : 'block'}} className="btn btn-block btn-lg btn-gradient btn-gradient-two">登入</button>
                                 </form>
                                 <button onClick={phoneLogin} className="btn btn-block btn-lg btn-gradient btn-gradient-two"

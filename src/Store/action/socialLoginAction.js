@@ -22,7 +22,7 @@ export const socialLoginUser = (social) => dispatch => {
                 type: 'USER_LOGIN',
                 user
             })
-            return Promise.resolve()
+            // return Promise.resolve()
         }).catch(function(error) {
             console.log(error)
             // Handle Errors here.
